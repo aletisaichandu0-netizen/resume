@@ -1,0 +1,54 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm start*)",
+      "Bash(npm run build*)",
+      "Bash(npm test*)",
+      "Bash(npm install*)",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git checkout*)",
+      "Bash(git branch*)",
+      "Bash(git pull*)",
+      "Bash(git stash*)",
+      "Bash(git merge*)"
+    ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(git push -f)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(git clean -fd*)",
+      "Bash(git clean -fdx*)",
+      "Bash(git commit --no-verify*)",
+      "Bash(git commit -n *)",
+      "Bash(git rebase -i*)",
+      "Bash(git branch -D*)",
+      "Bash(git tag -d*)",
+      "Bash(git filter-branch*)",
+      "Bash(git reflog delete*)",
+      "Bash(git config --global*)",
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf ~/)",
+      "Bash(rm -rf ./*)",
+      "Bash(rm -rf src*)",
+      "Bash(rm -rf node_modules*)",
+      "Bash(chmod 777*)",
+      "Bash(chmod -R 777*)",
+      "Bash(sudo rm*)",
+      "Bash(sudo chmod*)",
+      "Bash(> /etc/*)",
+      "Bash(npm publish*)",
+      "Bash(npx --yes*)",
+      "Bash(curl * | bash*)",
+      "Bash(wget * | bash*)"
+    ]
+  },
+  "env": {
+    "BROWSER": "none"
+  }
+}
