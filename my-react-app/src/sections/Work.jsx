@@ -1,110 +1,183 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '../animations/gsap'
-import MagneticButton from '../components/ui/MagneticButton'
 
 const PROJECTS = [
   {
-    num: '01', year: '2023',
-    name: 'Wbamrut', subtitle: 'Municipal GIS Platform',
-    desc: 'GIS platform managing water, green-space, and property tax data across West Bengal municipalities. Draw tools, layer analysis, compare/split views, and RBAC user management.',
-    stack: ['Angular', 'GeoServer', 'Leaflet', 'WMS', 'Keycloak'],
-    accent: '#D9C5B0',
+    slug: 'apaims',     num: '01', year: '2024', name: 'APAIMS',
+    tone: 'AgriTech · Enterprise', client: 'Govt. of Andhra Pradesh', role: 'Lead Frontend Engineer',
+    stat: '10K+', statLabel: 'Agricultural records',
+    desc: 'Large-scale Agricultural Information Management System — data-rich dashboards with dynamic filtering, multi-level headers, and export pipelines.',
+    deliverables: ['Angular 18', 'PrimeNG', 'PostgreSQL', 'Node.js'],
+    accent: '#F2590D',
   },
   {
-    num: '02', year: '2023',
-    name: 'SLIS-G', subtitle: 'Geospatial Analytics',
-    desc: 'Ingests satellite and drone imagery through ML models for automated alert generation and real-time map insights. ML-driven dashboards and drone imagery visualisation layers.',
-    stack: ['Angular', 'GIS', 'Satellite Data', 'ML Integration'],
-    accent: '#9B9DAB',
+    slug: 'slis-g',     num: '02', year: '2023', name: 'SLIS-G',
+    tone: 'GIS · AI Platform', client: 'Vassar Labs', role: 'Full Stack Engineer',
+    stat: 'RAG', statLabel: 'AI-powered alerts',
+    desc: 'Geospatial analytics platform ingesting satellite and drone imagery through ML models with RAG-style retrieval for automated alert generation.',
+    deliverables: ['Angular', 'GeoServer', 'ML / AI', 'OpenLayers'],
+    accent: '#60A5FA',
   },
   {
-    num: '03', year: '2024',
-    name: 'APAIMS', subtitle: 'Agricultural Information System',
-    desc: 'Large-scale system with dynamic tables, multi-level headers, filters, and exports. Fully reusable PrimeNG component library and Node.js middleware serving 10,000+ records.',
-    stack: ['Angular 18', 'PrimeNG', 'TypeScript', 'Node.js'],
-    accent: '#C4A98A',
+    slug: 'wbamrut',    num: '03', year: '2023', name: 'Wbamrut',
+    tone: 'Municipal GIS · Team Lead', client: 'Govt. of West Bengal', role: 'Team Lead · 5 Engineers',
+    stat: '5', statLabel: 'Engineers led',
+    desc: 'GIS-based platform managing water, green-space, and property tax data across West Bengal municipalities — draw tools, layer analysis, RBAC.',
+    deliverables: ['Angular', 'Leaflet', 'Keycloak', 'GeoServer'],
+    accent: '#22D3EE',
   },
   {
-    num: '04', year: '2022',
-    name: 'APWRIMS', subtitle: 'Water Resource Management',
-    desc: 'Angular interfaces for water-resource activity management. Streamlined API integration improving data flow and reporting for government stakeholders across Andhra Pradesh.',
-    stack: ['Angular', 'Bootstrap', 'REST APIs'],
-    accent: '#9C9378',
+    slug: 'apwrims',    num: '04', year: '2022', name: 'APWRIMS',
+    tone: 'Water Resource · Agile', client: 'Govt. of Andhra Pradesh', role: 'Frontend Engineer',
+    stat: '30%', statLabel: 'Load-time reduction',
+    desc: 'Angular interfaces for water-resource activity management — REST API integration, reporting, performance optimisation, and agile sprint delivery.',
+    deliverables: ['Angular', 'Bootstrap', 'REST APIs', 'PostgreSQL'],
+    accent: '#FBBF24',
+  },
+  {
+    slug: 'fieldwise',  num: '05', year: '2022', name: 'FieldWise IoT',
+    tone: 'IoT · Real-time', client: 'Vassar Labs · IoT Division', role: 'Engineering Intern',
+    stat: 'IoT', statLabel: 'Real-time data',
+    desc: 'Angular app integrating real-time IoT sensor data via RESTful APIs — interactive Leaflet maps, reactive forms, and UX improvements.',
+    deliverables: ['Angular', 'Leaflet', 'REST APIs', 'Reactive Forms'],
+    accent: '#4ADE80',
   },
 ]
 
-function Card({ project }) {
-  const ref = useRef()
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(ref.current, { opacity: 0, y: 48, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: ref.current, start: 'top 88%' } })
-    })
-    return () => ctx.revert()
-  }, [])
-
+function ProjectCard({ project }) {
   return (
-    <div ref={ref} className="group rounded-2xl overflow-hidden border border-ink-600 hover:border-ink-500 transition-colors duration-500 bg-ink-800">
-      <div className="h-px w-full" style={{ background: project.accent }} />
-      <div className="p-10 md:p-12">
-        <div className="flex items-start justify-between mb-8">
-          <div>
-            <span className="font-mono text-xs mb-2 block" style={{ color: project.accent, opacity: 0.65 }}>{project.num} / {project.year}</span>
-            <h3 className="font-serif text-sand-100 leading-tight" style={{ fontSize: 'clamp(24px,3vw,40px)' }}>{project.name}</h3>
-            <p className="text-sm mt-1" style={{ color: project.accent }}>{project.subtitle}</p>
+    <div className="group w-full shrink-0 md:w-[520px]">
+      <article className="flex flex-col gap-5">
+
+        {/* Image card */}
+        <div className="transition-transform duration-500 ease-[cubic-bezier(0.34,1.2,0.64,1)] group-hover:-translate-y-[10px]">
+          <div className="relative overflow-hidden"
+            style={{
+              aspectRatio: '4 / 5', borderRadius: '20px',
+              border: '1px solid var(--color-border)',
+              WebkitMaskImage: '-webkit-radial-gradient(white, black)', isolation: 'isolate',
+            }}>
+            {/* Blank placeholder */}
+            <div className="absolute inset-0" style={{ background: 'var(--color-placeholder)' }} />
+            {/* Accent glow */}
+            <div className="pointer-events-none absolute inset-0" style={{
+              background: `radial-gradient(ellipse 65% 50% at 15% 100%, ${project.accent}20 0%, transparent 60%)`,
+            }} />
+            {/* Top meta */}
+            <div className="absolute inset-x-0 top-0 flex items-center justify-between px-6 py-6 font-mono text-[10px] uppercase tracking-[0.22em] md:px-8 md:py-8 md:text-[11px]"
+              style={{ color: `${project.accent}cc` }}>
+              <span>{project.tone}</span>
+              <span style={{ color: 'var(--color-text-ultra)' }}>{project.num}</span>
+            </div>
+            {/* Bottom vignette */}
+            <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-[200px]" style={{
+              background: 'linear-gradient(to top, var(--color-placeholder-bot, rgba(0,0,0,0.9)) 0%, transparent 100%)',
+            }} />
+            {/* Stat */}
+            <div className="absolute bottom-0 left-0 px-6 pb-7 md:px-8 md:pb-10">
+              <span className="block font-archivo leading-none tracking-[-0.04em] text-[3.5rem] md:text-[5rem]"
+                style={{ color: project.accent }}>{project.stat}</span>
+              <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.2em]"
+                style={{ color: `${project.accent}70` }}>{project.statLabel}</span>
+            </div>
+            {/* Hover CTA */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span className="rounded-full px-6 py-3 font-mono text-[11px] uppercase tracking-[0.28em] text-white backdrop-blur-sm"
+                style={{ background: `${project.accent}22`, border: `1px solid ${project.accent}44` }}>
+                View Project
+              </span>
+            </div>
           </div>
-          <MagneticButton
-            className="w-12 h-12 rounded-full border flex items-center justify-center opacity-40 group-hover:opacity-100 transition-opacity duration-300"
-            style={{ borderColor: `${project.accent}55`, color: project.accent }}
-            aria-label={`View ${project.name}`}
-          >
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-          </MagneticButton>
         </div>
-        <p className="text-sand-500 leading-relaxed mb-8" style={{ fontSize: '15px', maxWidth: '60ch' }}>{project.desc}</p>
-        <div className="flex flex-wrap gap-2">
-          {project.stack.map(t => (
-            <span key={t} className="font-mono text-xs px-3 py-1.5 rounded-md" style={{ background: `${project.accent}10`, border: `1px solid ${project.accent}30`, color: project.accent }}>{t}</span>
-          ))}
+
+        {/* Below card info */}
+        <div className="flex flex-col gap-2 px-1">
+          <div className="flex items-baseline justify-between gap-4">
+            <span className="font-display text-[20px] leading-tight tracking-[-0.01em] md:text-[22px]"
+              style={{ color: 'var(--color-text)' }}>{project.name}</span>
+            <span className="shrink-0 font-mono text-[11px] tracking-[0.1em]"
+              style={{ color: 'var(--color-text-dim)' }}>{project.year}</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em]"
+            style={{ color: 'var(--color-text-dim)' }}>
+            <span>{project.client}</span>
+            <span style={{ opacity: 0.5 }}>·</span>
+            <span>{project.role}</span>
+          </div>
+          <p className="leading-[1.65] tracking-[-0.01em] font-light"
+            style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>{project.desc}</p>
+          <ul className="flex flex-wrap gap-[6px] pt-1">
+            {project.deliverables.map(d => (
+              <li key={d} className="rounded-full px-3 py-[5px] font-mono text-[10px] tracking-[0.06em]"
+                style={{ border: `1px solid ${project.accent}22`, color: 'var(--color-text-dim)' }}>{d}</li>
+            ))}
+          </ul>
         </div>
-      </div>
+      </article>
     </div>
   )
 }
 
 export default function Work() {
-  const headRef = useRef()
+  const sectionRef = useRef()
+  const cardsRef   = useRef()
+  const trackRef   = useRef()
+
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('.work-label', { opacity: 0, y: 12, duration: 0.6, ease: 'power2.out', scrollTrigger: { trigger: '.work-label', start: 'top 88%' } })
-      gsap.from('.work-line',  { yPercent: 105, duration: 0.9, stagger: 0.09, ease: 'expo.out', scrollTrigger: { trigger: headRef.current, start: 'top 84%' } })
-    })
+      gsap.from('[data-work-label]', { opacity: 0, y: 12, duration: 0.6, ease: 'power2.out', scrollTrigger: { trigger: '[data-work-label]', start: 'top 88%' } })
+      gsap.from('[data-work-head]',  { opacity: 0, y: 16, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '[data-work-head]', start: 'top 86%' } })
+
+      gsap.matchMedia().add('(min-width: 769px)', () => {
+        const section = cardsRef.current
+        const track   = trackRef.current
+        if (!section || !track) return
+        const cardItems = gsap.utils.toArray('li', track)
+        const clamp     = gsap.utils.clamp(-10, 10)
+        gsap.fromTo(track, { x: 0 }, {
+          x: () => -(track.scrollWidth - section.offsetWidth + 80),
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section, start: 'top top+=80',
+            end: () => `+=${Math.max(0, track.scrollWidth - section.offsetWidth + 160)}`,
+            pin: true, pinSpacing: true, scrub: 0.6, invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              const skew = clamp(self.getVelocity() / -350)
+              gsap.to(cardItems, { skewX: skew, duration: 1.2, ease: 'power3.out', overwrite: 'auto' })
+            },
+          },
+        })
+      })
+    }, sectionRef)
     return () => ctx.revert()
   }, [])
 
   return (
-    <section id="work" className="px-8 md:px-16 py-30 border-t border-ink-700">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-          <div>
-            <p className="work-label label mb-6">/ Selected work</p>
-            <div ref={headRef}>
-              {['Key', 'Projects'].map((w, i) => (
-                <div key={i} className="overflow-hidden">
-                  <h2 className={`work-line font-serif leading-[1.05] tracking-[-0.02em] ${i === 1 ? 'text-sand-500 italic' : 'text-sand-100'}`} style={{ fontSize: 'clamp(40px,6vw,80px)' }}>{w}</h2>
-                </div>
-              ))}
-            </div>
-          </div>
-          <p className="label text-sand-600 max-w-xs" style={{ fontSize: '12px', lineHeight: '1.7' }}>
-            Production applications for government agencies, agritech platforms, and enterprise clients.
+    <section ref={sectionRef} id="work" className="relative" style={{ background: 'var(--color-bg)' }}>
+      {/* Header */}
+      <div className="px-4 pb-8 pt-16 sm:px-6 md:px-16 md:pb-12 md:pt-28 lg:px-24">
+        <p data-work-label className="label mb-5 md:mb-8">03 — Selected Work</p>
+        <div data-work-head className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-6">
+          <h2 className="font-display leading-[0.95] tracking-[-0.02em]"
+            style={{ fontSize: 'clamp(2.6rem, 6vw, 5.5rem)', color: 'var(--color-text)' }}>
+            Selected Work
+          </h2>
+          <p className="max-w-[44ch] text-[14px] leading-[1.72]" style={{ color: 'var(--color-text-dim)' }}>
+            Government platforms, enterprise tools, AI-powered field apps — built to ship.
           </p>
         </div>
+      </div>
 
-        <div className="grid md:grid-cols-2 gap-5">
-          {PROJECTS.map(p => <Card key={p.name} project={p} />)}
-        </div>
+      {/* Cards */}
+      <div ref={cardsRef} data-feature-cards-section className="pb-4 overflow-hidden">
+        <ul ref={trackRef} data-feature-cards-track
+          className="flex flex-col gap-10 px-4 sm:px-6 md:flex-row md:gap-9 md:pl-20 md:pr-20">
+          {PROJECTS.map((p) => (
+            <li key={p.slug} className="w-full shrink-0 md:w-[520px]">
+              <ProjectCard project={p} />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

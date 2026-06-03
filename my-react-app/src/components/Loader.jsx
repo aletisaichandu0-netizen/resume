@@ -1,44 +1,93 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '../animations/gsap'
 
+const PHRASE = 'Loading'
+
+function springStep(s, target, k = 0.05, d = 0.82) {
+  s.vel += (target - s.pos) * k
+  s.vel *= d
+  s.pos += s.vel
+}
+
 export default function Loader() {
-  const topRef  = useRef()
-  const botRef  = useRef()
-  const numRef  = useRef()
-  const barRef  = useRef()
   const wrapRef = useRef()
+  const textRef = useRef()
+  const barRef  = useRef()
+  const numRef  = useRef()
+  const rafRef  = useRef()
 
   useEffect(() => {
+    const el = textRef.current
+    if (!el) return
+
+    el.textContent = ''
+    const spans = PHRASE.split('').map(ch => {
+      const s = document.createElement('span')
+      s.textContent = ch
+      s.style.display = 'inline-block'
+      s.style.whiteSpace = 'pre'
+      el.appendChild(s)
+      return s
+    })
+
+    const state = spans.map(() => ({ pos: 400, vel: 0 }))
+    let t = 0
+    const tick = () => {
+      t++
+      spans.forEach((ch, i) => {
+        springStep(state[i], 400 + Math.sin(t * 0.055 - i * 0.5) * 290)
+        ch.style.fontVariationSettings = `'wght' ${state[i].pos.toFixed(0)}`
+      })
+      rafRef.current = requestAnimationFrame(tick)
+    }
+    rafRef.current = requestAnimationFrame(tick)
+
     const ctx = gsap.context(() => {
       const counter = { val: 0 }
-      const tl = gsap.timeline()
-
-      tl.to(counter, {
-        val: 100, duration: 1.6, ease: 'power1.inOut',
-        onUpdate() { if (numRef.current) numRef.current.textContent = Math.round(counter.val) },
-      })
-        .to(barRef.current, { scaleX: 1, duration: 1.6, ease: 'power1.inOut' }, '<')
-        .to([topRef.current, botRef.current], {
-          yPercent: (i) => (i === 0 ? -100 : 100),
-          duration: 0.85, ease: 'expo.inOut',
-          onComplete: () => gsap.set(wrapRef.current, { display: 'none' }),
-        }, '+=0.1')
+      gsap.timeline()
+        .to(counter, {
+          val: 100, duration: 1.8, ease: 'power1.inOut',
+          onUpdate() { if (numRef.current) numRef.current.textContent = `${Math.round(counter.val)}%` },
+        })
+        .to(barRef.current, { scaleX: 1, duration: 1.8, ease: 'power1.inOut' }, '<')
+        .to(wrapRef.current, {
+          yPercent: -100, duration: 0.9, ease: 'expo.inOut',
+          onComplete: () => {
+            cancelAnimationFrame(rafRef.current)
+            if (wrapRef.current) wrapRef.current.style.display = 'none'
+          },
+        }, '+=0.15')
     })
-    return () => ctx.revert()
+
+    return () => {
+      cancelAnimationFrame(rafRef.current)
+      ctx.revert()
+    }
   }, [])
 
   return (
-    <div ref={wrapRef} className="fixed inset-0 z-[9999]">
-      <div ref={topRef} className="absolute top-0 left-0 w-full h-1/2 bg-ink-900 flex items-end justify-center pb-5">
-        <div className="flex items-end gap-1 leading-none font-serif">
-          <span ref={numRef} className="text-sand-100" style={{ fontSize: 'clamp(5rem,14vw,9rem)', fontWeight: 400, fontVariantNumeric: 'tabular-nums' }}>0</span>
-          <span className="text-sand-300 mb-2" style={{ fontSize: 'clamp(2rem,5vw,3.5rem)' }}>%</span>
+    <div
+      ref={wrapRef}
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center gap-8"
+      style={{ background: 'var(--color-bg)' }}
+    >
+      <div ref={textRef}
+        style={{
+          display: 'flex',
+          fontSize: 'clamp(28px, 4vw, 56px)',
+          fontFamily: 'Helvena, sans-serif',
+          letterSpacing: '-0.03em',
+          color: 'var(--color-text-80)',
+        }}
+      />
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-48 h-px overflow-hidden" style={{ background: 'var(--color-border)' }}>
+          <div ref={barRef} className="w-full h-full" style={{
+            background: 'linear-gradient(90deg, var(--color-accent), var(--color-yellow))',
+            transformOrigin: 'left', transform: 'scaleX(0)',
+          }} />
         </div>
-      </div>
-      <div ref={botRef} className="absolute bottom-0 left-0 w-full h-1/2 bg-ink-900 flex items-start justify-center pt-5">
-        <div className="w-40 h-px bg-ink-600 overflow-hidden rounded-full">
-          <div ref={barRef} className="w-full h-full bg-sand-300" style={{ transformOrigin: 'left', transform: 'scaleX(0)' }} />
-        </div>
+        <span ref={numRef} className="font-mono text-xs" style={{ color: 'var(--color-text-dim)' }}>0%</span>
       </div>
     </div>
   )
