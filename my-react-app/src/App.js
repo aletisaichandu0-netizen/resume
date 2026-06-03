@@ -11,29 +11,38 @@ import Stack              from './sections/Stack'
 import Experience         from './sections/Experience'
 import Contact            from './sections/Contact'
 
-const MARQUEE_TEXT = 'ANGULAR · REACT · TYPESCRIPT · GIS · AI/ML · NODE.JS · POSTGRESQL · AZURE · GSAP · '
+const MARQUEE_A = '◈ ANGULAR · REACT · TYPESCRIPT · GIS · AI/ML · NODE.JS · POSTGRESQL · AZURE '
+const MARQUEE_B = '◉ LEAFLET · OPENAI · GSAP · KEYCLOAK · GEOSPATIAL · MICROSERVICES · DOCKER '
 
-function Marquee({ reverse }) {
+function Marquee({ text, reverse, dim }) {
   const trackRef = useRef()
 
   useEffect(() => {
     const track = trackRef.current
     if (!track) return
     const tween = reverse
-      ? gsap.fromTo(track, { xPercent: -33.333 }, { xPercent: 0, duration: 28, ease: 'none', repeat: -1 })
-      : gsap.to(track, { xPercent: -33.333, duration: 28, ease: 'none', repeat: -1 })
+      ? gsap.fromTo(track, { xPercent: -33.333 }, { xPercent: 0, duration: 32, ease: 'none', repeat: -1 })
+      : gsap.to(track, { xPercent: -33.333, duration: 32, ease: 'none', repeat: -1 })
     return () => tween.kill()
   }, [reverse])
 
-  const triple = `${MARQUEE_TEXT}${MARQUEE_TEXT}${MARQUEE_TEXT}`
+  const triple = `${text}${text}${text}`
 
   return (
-    <div className="overflow-hidden py-10 md:py-14" style={{ background: 'var(--color-bg)', borderTop: '1px solid var(--color-border)', borderBottom: '1px solid var(--color-border)' }}>
-      <div
-        ref={trackRef}
-        className="marquee-track font-archivo uppercase"
-        style={{ fontSize: 'clamp(3.5rem, 9vw, 8rem)', lineHeight: 1, letterSpacing: '-0.04em', color: 'var(--color-text)', whiteSpace: 'nowrap' }}
-      >
+    <div className="overflow-hidden py-5 md:py-6"
+      style={{
+        background: dim ? 'var(--color-bg-raised)' : 'var(--color-bg)',
+        borderTop: '1px solid var(--color-border)',
+        borderBottom: '1px solid var(--color-border)',
+      }}>
+      <div ref={trackRef} className="marquee-track font-archivo uppercase select-none"
+        style={{
+          fontSize: 'clamp(0.85rem, 2.5vw, 1.5rem)',
+          lineHeight: 1,
+          letterSpacing: '-0.01em',
+          color: dim ? 'var(--color-text-ultra)' : 'var(--color-text-dim)',
+          whiteSpace: 'nowrap',
+        }}>
         {triple}
       </div>
     </div>
@@ -55,10 +64,10 @@ function AppInner() {
       <Navbar />
       <main className="relative z-10">
         <Hero />
-        <Marquee reverse={false} />
+        <Marquee text={MARQUEE_A} reverse={false} dim={false} />
         <About />
         <Work />
-        <Marquee reverse={true} />
+        <Marquee text={MARQUEE_B} reverse={true} dim={true} />
         <Stack />
         <Experience />
       </main>

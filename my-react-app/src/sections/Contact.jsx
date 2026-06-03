@@ -3,28 +3,29 @@ import { gsap } from '../animations/gsap'
 
 const EMAIL   = 'aletisaichandu0@gmail.com'
 const SOCIALS = [
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/aleti-saichandu-103b1622a' },
-  { label: 'Email',    href: 'mailto:aletisaichandu0@gmail.com' },
-  { label: 'Phone',    href: 'tel:+919494506038' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/aleti-saichandu-103b1622a', meta: 'Connect' },
+  { label: 'Email',    href: 'mailto:aletisaichandu0@gmail.com', meta: 'Direct' },
+  { label: 'Phone',    href: 'tel:+919494506038', meta: '+91 949 450 6038' },
 ]
 const NAV = [
-  { label: 'Home',       id: 'hero' },
-  { label: 'Work',       id: 'work' },
+  { label: 'Hero',       id: 'hero' },
   { label: 'About',      id: 'about' },
+  { label: 'Work',       id: 'work' },
   { label: 'Stack',      id: 'stack' },
   { label: 'Experience', id: 'experience' },
 ]
+const OPEN_TO = ['Senior Frontend Roles', 'Full-stack Contracts', 'GIS/AgriTech Projects', 'AI Integration Work']
 
 export default function Contact() {
   const sectionRef = useRef()
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from('[data-ct-label]', { opacity: 0, y: 12, duration: 0.6, ease: 'power2.out', scrollTrigger: { trigger: '[data-ct-label]', start: 'top 88%' } })
-      gsap.from('[data-ct-line]',  { yPercent: 110, duration: 1.0, stagger: 0.1, ease: 'expo.out', scrollTrigger: { trigger: '[data-ct-head]', start: 'top 82%' } })
-      gsap.from('[data-ct-sub]',   { opacity: 0, y: 20, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '[data-ct-sub]', start: 'top 88%' } })
-      gsap.from('[data-ct-cta]',   { opacity: 0, y: 20, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '[data-ct-cta]', start: 'top 90%' } })
-      gsap.from('[data-ct-cols]',  { opacity: 0, y: 20, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '[data-ct-cols]', start: 'top 90%' } })
+      gsap.from('[data-ct-label]',  { opacity: 0, y: 12, duration: 0.6, ease: 'power2.out', scrollTrigger: { trigger: '[data-ct-label]', start: 'top 88%' } })
+      gsap.from('[data-ct-line]',   { yPercent: 110, duration: 1.0, stagger: 0.09, ease: 'expo.out', scrollTrigger: { trigger: '[data-ct-head]', start: 'top 82%' } })
+      gsap.from('[data-ct-sub]',    { opacity: 0, y: 18, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '[data-ct-sub]', start: 'top 88%' } })
+      gsap.from('[data-ct-cta]',    { opacity: 0, y: 18, duration: 0.65, ease: 'power3.out', scrollTrigger: { trigger: '[data-ct-cta]', start: 'top 90%' } })
+      gsap.from('[data-ct-cols]',   { opacity: 0, y: 18, duration: 0.65, ease: 'power3.out', scrollTrigger: { trigger: '[data-ct-cols]', start: 'top 90%' } })
     }, sectionRef)
     return () => ctx.revert()
   }, [])
@@ -35,90 +36,113 @@ export default function Contact() {
     <footer ref={sectionRef} id="contact" className="footer-glass relative w-full"
       style={{ borderTop: '1px solid var(--color-border)' }}>
 
-      <div className="mx-auto flex min-h-[80svh] w-full max-w-[1400px] flex-col justify-between px-6 py-16 md:px-12 md:py-20">
+      <div className="mx-auto flex min-h-[80svh] w-full max-w-[1300px] flex-col justify-between px-6 py-16 md:px-12 md:py-20">
 
-        <p data-ct-label className="label mb-2">05 — Contact</p>
+        <div className="flex items-center gap-4 mb-4">
+          <div className="accent-line" />
+          <p data-ct-label className="label">05 — Contact</p>
+        </div>
 
-        {/* Heading */}
-        <div data-ct-head className="my-8 md:my-12">
-          {["Let's build", 'something', 'remarkable.'].map((w, i) => (
+        {/* Big heading */}
+        <div data-ct-head className="my-10 md:my-14">
+          {[
+            { text: "Let's build", color: 'var(--color-text)', italic: false },
+            { text: 'something', color: 'var(--color-accent)', italic: true },
+            { text: 'remarkable.', color: 'var(--color-text-muted)', italic: false },
+          ].map(({ text, color, italic }, i) => (
             <div key={i} className="overflow-hidden">
-              <h2 data-ct-line className="font-display leading-[1.0] tracking-[-0.03em]"
-                style={{
-                  fontSize: 'clamp(2.8rem, 8vw, 8rem)',
-                  color: i === 1 ? 'var(--color-accent)' : i === 2 ? 'var(--color-text-muted)' : 'var(--color-text)',
-                  fontStyle: i === 1 ? 'italic' : 'normal',
-                }}>
-                {w}
+              <h2 data-ct-line className="font-display leading-[0.98] tracking-[-0.03em]"
+                style={{ fontSize: 'clamp(2.6rem, 7.5vw, 7.5rem)', color, fontStyle: italic ? 'italic' : 'normal' }}>
+                {text}
               </h2>
             </div>
           ))}
         </div>
 
-        <p data-ct-sub className="mb-10 max-w-lg leading-[1.7]"
-          style={{ fontSize: 'clamp(14px,1.3vw,17px)', color: 'var(--color-text-muted)' }}>
-          Open to senior frontend roles, freelance projects, and GIS / AgriTech collaborations.
-          Based in Hyderabad, India. Available now.
+        <p data-ct-sub className="mb-10 max-w-[48ch] leading-[1.78]"
+          style={{ fontSize: 'clamp(13.5px,1.25vw,16px)', color: 'var(--color-text-muted)' }}>
+          4+ years building enterprise government platforms at the intersection of GIS, AI, and performance engineering.
+          Based in Hyderabad, India. Open and available now.
         </p>
 
-        <div data-ct-cta className="mb-16">
-          <a href="mailto:aletisaichandu0@gmail.com"
-            className="inline-flex items-center gap-3 rounded-lg px-8 py-4 font-sans text-sm font-medium transition-all duration-300"
-            style={{ background: 'linear-gradient(135deg, var(--color-accent), #c4a98a)', color: 'var(--color-bg)', boxShadow: '0 4px 24px var(--color-accent-dim)' }}>
-            Send a message
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
-          </a>
+        {/* CTA + open-to */}
+        <div data-ct-cta className="mb-14 flex flex-col gap-5">
+          <div className="flex flex-wrap items-center gap-4">
+            <a href="mailto:aletisaichandu0@gmail.com"
+              className="inline-flex items-center gap-2.5 rounded-xl px-8 py-4 font-sans text-sm font-medium text-[#0d0b08] transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+              style={{ background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-yellow) 100%)', boxShadow: '0 4px 28px var(--color-accent-glow), 0 2px 8px rgba(0,0,0,0.25)' }}>
+              Send a message
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+            </a>
+            <span className="inline-flex items-center gap-2 rounded-full px-4 py-2 font-mono text-[10.5px] uppercase tracking-[0.18em]"
+              style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border-strong)', color: 'var(--color-success)' }}>
+              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--color-success)' }} />
+              Available now
+            </span>
+          </div>
+
+          {/* Open-to chips */}
+          <div className="flex flex-wrap gap-2">
+            {OPEN_TO.map(t => (
+              <span key={t} className="rounded-full px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em]"
+                style={{ background: 'var(--color-bg-raised)', border: '1px solid var(--color-border)', color: 'var(--color-text-dim)' }}>
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* Four columns */}
-        <div data-ct-cols className="flex w-full flex-col gap-8 md:flex-row md:justify-between">
+        <div data-ct-cols className="flex w-full flex-col gap-10 border-t pt-10 md:flex-row md:justify-between"
+          style={{ borderColor: 'var(--color-border)' }}>
+
           <div className="flex flex-col gap-3">
-            <h4 className="footer-label">Socials</h4>
-            {SOCIALS.map(s => (
-              <a key={s.label} href={s.href}
-                target={s.href.startsWith('http') ? '_blank' : undefined}
+            <h4 className="footer-label">Connect</h4>
+            {SOCIALS.map(({ label, href, meta }) => (
+              <a key={label} href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
                 rel="noopener noreferrer"
-                className="footer-link">{s.label}</a>
+                className="flex items-center justify-between gap-6 footer-link group/link">
+                <span>{label}</span>
+                <span className="font-mono text-[9.5px] uppercase tracking-[0.14em] opacity-0 group-hover/link:opacity-100 transition-opacity"
+                  style={{ color: 'var(--color-accent)' }}>{meta}</span>
+              </a>
             ))}
           </div>
 
           <div className="flex flex-col gap-3">
             <h4 className="footer-label">Navigate</h4>
-            {NAV.map(n => (
-              <button key={n.id} onClick={() => scroll(n.id)} className="footer-link text-left">{n.label}</button>
+            {NAV.map(({ label, id }) => (
+              <button key={id} onClick={() => scroll(id)} className="footer-link text-left">{label}</button>
             ))}
           </div>
 
           <div className="flex flex-col gap-3">
-            <h4 className="footer-label">Availability</h4>
-            <p className="footer-muted max-w-[200px]">Open to senior frontend roles and freelance collaborations.</p>
-            <span className="mt-2 inline-flex w-fit items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 text-xs text-green-400">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-400" />
-              Available now
-            </span>
+            <h4 className="footer-label">Location</h4>
+            <p className="footer-link" style={{ cursor: 'default' }}>Hyderabad, India</p>
+            <p className="footer-muted">IST (UTC +5:30)</p>
+            <p className="footer-muted mt-1">Open to remote + hybrid</p>
           </div>
 
           <div className="flex flex-col gap-3">
             <h4 className="footer-label">Education</h4>
-            <p className="footer-muted">B.Tech Computer Science</p>
+            <p className="footer-link" style={{ cursor: 'default' }}>B.Tech Computer Science</p>
             <p className="footer-muted">JNTU Hyderabad, 2022</p>
-            <p className="footer-muted mt-3">© 2025 Aleti Sai Chandu</p>
+            <p className="footer-muted mt-4 text-[11px]">© 2025 Aleti Sai Chandu</p>
+            <p className="footer-muted text-[10px]">Built with React · GSAP · Tailwind</p>
           </div>
         </div>
       </div>
 
-      {/* Full-width email with per-letter hover */}
+      {/* Full-width email */}
       <a href={`mailto:${EMAIL}`} className="footer-email group block w-full pt-8 pb-6 md:pt-10 md:pb-8"
-        aria-label={`Email ${EMAIL}`}
-        style={{ borderTop: '1px solid var(--color-border)' }}>
+        aria-label={`Email ${EMAIL}`} style={{ borderTop: '1px solid var(--color-border)' }}>
 
-        {/* Desktop — letters spread full width */}
-        <h2
-          className="m-0 hidden w-full items-baseline justify-between font-display md:flex px-6 md:px-12"
-          style={{ fontSize: 'clamp(1.6rem, 5.2vw, 7.5rem)', fontWeight: 400, letterSpacing: 0, lineHeight: 1, color: 'var(--color-text-80)' }}
-        >
+        {/* Desktop: letters spread full width */}
+        <h2 className="m-0 hidden w-full items-baseline justify-between font-display md:flex px-6 md:px-12"
+          style={{ fontSize: 'clamp(1.5rem, 4.9vw, 7rem)', fontWeight: 400, letterSpacing: 0, lineHeight: 1, color: 'var(--color-text-80)' }}>
           {EMAIL.split('').map((char, i) => (
             <span key={i} className="footer-letter"
               style={{ '--i': i, color: (char === '@' || char === '.') ? 'var(--color-accent)' : undefined }}>
@@ -127,9 +151,9 @@ export default function Contact() {
           ))}
         </h2>
 
-        {/* Mobile — block text */}
+        {/* Mobile: block text */}
         <p className="block px-6 font-display md:hidden"
-          style={{ fontSize: 'clamp(1.3rem, 7vw, 2.5rem)', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1.1, color: 'var(--color-text-80)', wordBreak: 'break-all' }}>
+          style={{ fontSize: 'clamp(1.2rem, 6.5vw, 2.4rem)', fontWeight: 400, letterSpacing: '-0.02em', lineHeight: 1.1, color: 'var(--color-text-80)', wordBreak: 'break-all' }}>
           {EMAIL}
         </p>
       </a>
