@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/resume/static/css/main.85827422.css",
-    "main.js": "/resume/static/js/main.3d46de33.js",
+    "main.css": "/resume/static/css/main.bd181103.css",
+    "main.js": "/resume/static/js/main.c44d5e56.js",
     "static/js/453.ad6eb26e.chunk.js": "/resume/static/js/453.ad6eb26e.chunk.js",
     "static/media/ArchivoBlack-Regular.ttf": "/resume/static/media/ArchivoBlack-Regular.a9af1953cfe93a0cbe4d.ttf",
     "static/media/helvena-variable.woff2": "/resume/static/media/helvena-variable.6495954d81b1c192ed27.woff2",
     "static/media/vanois.woff2": "/resume/static/media/vanois.ebc2198caed807d6e70f.woff2",
     "index.html": "/resume/index.html",
-    "main.85827422.css.map": "/resume/static/css/main.85827422.css.map",
-    "main.3d46de33.js.map": "/resume/static/js/main.3d46de33.js.map",
+    "main.bd181103.css.map": "/resume/static/css/main.bd181103.css.map",
+    "main.c44d5e56.js.map": "/resume/static/js/main.c44d5e56.js.map",
     "453.ad6eb26e.chunk.js.map": "/resume/static/js/453.ad6eb26e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.85827422.css",
-    "static/js/main.3d46de33.js"
+    "static/css/main.bd181103.css",
+    "static/js/main.c44d5e56.js"
   ]
 }
