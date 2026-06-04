@@ -11,16 +11,18 @@ const JOBS = [
     accent: '#d4a96c',
     type: 'Full-time',
     bullets: [
-      { impact: 'Architected', text: 'Angular (v2–18) and React.js web apps across multiple product lines for enterprise government clients' },
-      { impact: '10K+ records', text: 'Designed and optimised PostgreSQL schemas with complex filtering, aggregation, and export pipelines' },
-      { impact: 'Design System', text: 'Built reusable PrimeNG component library across 5+ projects aligned with Micro Frontend principles, cutting delivery time 40%' },
-      { impact: 'AI/ML', text: 'Integrated RAG-style retrieval into geospatial dashboards for automated alert generation from satellite/drone imagery' },
-      { impact: 'Full-stack', text: 'Developed Node.js middleware, REST APIs, and Python scripts for backend data pipelines and AI workflow automation' },
-      { impact: 'Analytics', text: 'Integrated Highcharts and PrimeNG Charts for advanced dashboards serving government and enterprise stakeholders' },
-      { impact: '30% faster', text: 'Achieved load-time reduction via lazy loading, memoisation, and code-splitting — improving Lighthouse scores' },
-      { impact: 'GIS', text: 'Developed tools with Leaflet, OpenLayers, and GeoServer for spatial data visualisation, layer filtering, and analysis' },
-      { impact: 'Security', text: 'Implemented Keycloak IAM (RBAC) for enterprise-grade access control as a first-class engineering concern' },
-      { impact: 'Lead', text: 'Led 5 engineers — code reviews, TypeScript mentoring, and AI-assisted workflow knowledge-sharing sessions' },
+      { tag: 'Architecture',  text: 'Architected Angular (v2–18) and React.js web apps across multiple product lines — responsiveness, cross-browser compatibility, and maintainability for enterprise government clients' },
+      { tag: 'Database',      text: 'Designed and optimised PostgreSQL schemas handling 10,000+ agricultural records with complex multi-level filtering, aggregation, and export pipelines' },
+      { tag: 'Design System', text: 'Built and maintained a reusable PrimeNG-based component library across 5+ projects aligned with Micro Frontend principles — reducing feature delivery time by 40%' },
+      { tag: 'AI/ML',         text: 'Integrated AI/ML services and RAG-style retrieval into geospatial dashboards — automated alert generation from satellite/drone imagery and real-time intelligent map insights' },
+      { tag: 'Backend',       text: 'Developed Node.js middleware, REST APIs, and Python utility scripts for data pipelines, API proxying, and AI workflow automation' },
+      { tag: 'Visualisation', text: 'Integrated Highcharts and PrimeNG Charts for advanced analytics dashboards — translating complex data into interactive visualisations for government stakeholders' },
+      { tag: 'Performance',   text: 'Optimised application performance via lazy loading, memoisation, and code-splitting — reducing initial load times by 30% and improving Lighthouse scores' },
+      { tag: 'GIS',           text: 'Developed custom GIS tools with Leaflet, OpenLayers, and GeoServer for spatial data visualisation, layer filtering, and geospatial analysis' },
+      { tag: 'Security',      text: 'Implemented IAM with Keycloak (RBAC) for enterprise-grade user and role management — applying security and compliance as first-class engineering concerns' },
+      { tag: 'Delivery',      text: 'Owned feature delivery end-to-end — estimated effort, implemented features, wrote unit and integration tests, performed code reviews, and supported CI/CD pipelines' },
+      { tag: 'AI Tools',      text: 'Leveraged AI-powered coding tools (Claude Code, GitHub Copilot) daily to accelerate development velocity, prototype features rapidly, and improve code quality' },
+      { tag: 'Lead',          text: 'Led a team of 5 engineers — code reviews, TypeScript best practices, mentoring junior developers, and knowledge-sharing sessions on modern frontend and AI workflows' },
     ],
   },
   {
@@ -32,8 +34,8 @@ const JOBS = [
     accent: '#60A5FA',
     type: 'Internship',
     bullets: [
-      { impact: 'Angular', text: 'Built web applications — components, services, reactive forms integrated with RESTful APIs for real-time IoT data exchange' },
-      { impact: 'GIS', text: 'Gained hands-on experience with Leaflet and OpenLayers, integrating interactive maps into IoT monitoring dashboards' },
+      { tag: 'Angular',  text: 'Built and maintained Angular-based web applications — components, services, reactive forms, and modules integrated with RESTful APIs for real-time IoT data exchange' },
+      { tag: 'GIS',      text: 'Gained GIS exposure (Leaflet, OpenLayers) by integrating interactive maps into IoT dashboards; collaborated on input validation, template-driven forms, and UX improvements' },
     ],
   },
 ]
@@ -58,10 +60,8 @@ export default function Experience() {
       style={{ background: 'var(--color-bg)' }}>
 
       <div className="pointer-events-none absolute inset-0 z-0 grid-bg" />
-      <div className="pointer-events-none absolute -right-24 top-1/4 z-0 h-80 w-80 rounded-full blur-[100px]"
-        style={{ background: 'var(--color-accent)', opacity: 0.06 }} />
-      <div className="pointer-events-none absolute -left-16 bottom-1/4 z-0 h-64 w-64 rounded-full blur-[90px]"
-        style={{ background: '#60A5FA', opacity: 0.05 }} />
+      <div className="pointer-events-none absolute -right-24 top-1/4 z-0 h-80 w-80 rounded-full blur-[100px]" style={{ background: 'var(--color-accent)', opacity: 0.05 }} />
+      <div className="pointer-events-none absolute -left-16 bottom-1/4 z-0 h-64 w-64 rounded-full blur-[90px]" style={{ background: '#60A5FA', opacity: 0.04 }} />
 
       <div className="relative z-10 mx-auto max-w-[1100px]">
 
@@ -70,7 +70,7 @@ export default function Experience() {
           <p data-exp-label className="label">04 — Work History</p>
         </div>
 
-        {/* Section header */}
+        {/* Header */}
         <div data-exp-head className="mb-10 rounded-[20px] p-7 backdrop-blur-sm md:mb-14 md:p-10"
           style={{ background: 'var(--color-bg-raised)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-card)' }}>
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
@@ -82,83 +82,70 @@ export default function Experience() {
               }}>
               Work<br /><span style={{ fontStyle: 'italic' }}>Experience</span>
             </h2>
-            <div className="flex flex-col gap-2 md:items-end">
-              <span className="font-mono text-[11px] uppercase tracking-[0.20em]" style={{ color: 'var(--color-text-dim)' }}>
-                Currently at Vassar Labs
-              </span>
-              <span className="font-mono text-[10px]" style={{ color: 'var(--color-accent)' }}>
-                4+ years · Hyderabad, India
-              </span>
+            <div className="flex flex-col gap-1.5 md:items-end">
+              <span className="font-mono text-[12.5px] uppercase tracking-[0.14em]" style={{ color: 'var(--color-text-muted)' }}>Vassar Labs, Hyderabad</span>
+              <span className="font-mono text-[12px]" style={{ color: 'var(--color-accent)' }}>Sep 2022 — Present · 3+ years</span>
             </div>
           </div>
         </div>
 
         {/* Timeline */}
         <div className="relative flex flex-col gap-5">
-          {/* Timeline vertical line — desktop */}
           <div className="absolute left-[19px] top-6 bottom-6 w-px hidden md:block"
             style={{ background: 'linear-gradient(to bottom, var(--color-accent), transparent)' }} />
 
           {JOBS.map((job, i) => (
             <div key={i} data-exp-card className="flex gap-0 md:gap-8">
 
-              {/* Timeline dot — desktop */}
+              {/* Dot */}
               <div className="hidden md:flex flex-col items-center flex-shrink-0 pt-6">
-                <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'var(--color-bg-elevated)', border: `2px solid ${job.accent}`, boxShadow: `0 0 20px ${job.accent}30` }}>
+                <div className="w-10 h-10 rounded-full flex items-center justify-center"
+                  style={{ background: 'var(--color-bg-elevated)', border: `2px solid ${job.accent}`, boxShadow: `0 0 20px ${job.accent}28` }}>
                   <div className="w-2.5 h-2.5 rounded-full" style={{ background: job.accent }} />
                 </div>
               </div>
 
               {/* Card */}
               <div className="service-card group relative flex-1 overflow-hidden rounded-[20px] p-7 transition-[box-shadow] duration-300 md:p-9"
-                style={{
-                  background: 'var(--color-bg-raised)',
-                  border: '1px solid var(--color-border)',
-                  borderLeft: `3px solid ${job.accent}`,
-                  boxShadow: 'var(--shadow-card)',
-                }}>
+                style={{ background: 'var(--color-bg-raised)', border: '1px solid var(--color-border)', borderLeft: `3px solid ${job.accent}`, boxShadow: 'var(--shadow-card)' }}>
                 <div className="service-card-shine pointer-events-none absolute inset-0 z-0" />
                 <div className="absolute left-0 right-0 top-0 h-[2px] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  style={{ background: `linear-gradient(90deg, transparent, ${job.accent}60, transparent)` }} />
+                  style={{ background: `linear-gradient(90deg, transparent, ${job.accent}55, transparent)` }} />
 
                 <div className="relative z-10">
-                  {/* Header row */}
+                  {/* Header */}
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 mb-7">
                     <div>
                       <div className="flex items-center gap-2 mb-1.5">
-                        <h3 className="font-display leading-tight" style={{ fontSize: 'clamp(18px,2vw,26px)', color: 'var(--color-text)' }}>
+                        <h3 className="font-display leading-tight" style={{ fontSize: 'clamp(20px,2.2vw,30px)', color: 'var(--color-text)' }}>
                           {job.company}
                         </h3>
-                        <span className="rounded-full px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em]"
-                          style={{ background: `${job.accent}14`, color: job.accent, border: `1px solid ${job.accent}25` }}>
+                        <span className="rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em]"
+                          style={{ background: `${job.accent}18`, color: job.accent, border: `1px solid ${job.accent}30` }}>
                           {job.type}
                         </span>
                       </div>
-                      <p className="font-mono text-[10.5px] uppercase tracking-[0.18em]" style={{ color: job.accent }}>
-                        {job.division}
-                      </p>
+                      <p className="font-mono text-[12px] uppercase tracking-[0.16em] mt-1" style={{ color: job.accent }}>{job.division}</p>
                     </div>
                     <div className="md:text-right shrink-0">
-                      <p className="font-mono text-[11px] mb-1.5" style={{ color: 'var(--color-text-dim)' }}>{job.role}</p>
-                      <span className="inline-flex items-center gap-2 font-mono text-[10.5px] px-3 py-1.5 rounded-lg"
-                        style={{ border: `1px solid ${job.accent}28`, color: job.accent, background: `${job.accent}0A` }}>
-                        <span className="w-1.5 h-1.5 rounded-full" style={{ background: job.accent }} />
+                      <p className="font-mono text-[13px] font-medium mb-2" style={{ color: 'var(--color-text-80)' }}>{job.role}</p>
+                      <span className="inline-flex items-center gap-2 font-mono text-[12px] px-3.5 py-2 rounded-lg"
+                        style={{ border: `1px solid ${job.accent}35`, color: job.accent, background: `${job.accent}10` }}>
+                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: job.accent }} />
                         {job.period}
                       </span>
-                      <p className="mt-1.5 font-mono text-[9.5px]" style={{ color: 'var(--color-text-ultra)' }}>{job.duration}</p>
+                      <p className="mt-1.5 font-mono text-[11px]" style={{ color: 'var(--color-text-dim)' }}>{job.duration}</p>
                     </div>
                   </div>
 
-                  {/* Bullets with impact labels */}
-                  <ul className="grid md:grid-cols-2 gap-x-8 gap-y-2.5">
-                    {job.bullets.map(({ impact, text }, j) => (
-                      <li key={j} className="flex gap-3 leading-relaxed">
-                        <span className="flex-shrink-0 mt-[5px] w-1.5 h-1.5 rounded-full" style={{ background: job.accent }} />
-                        <span style={{ fontSize: '13px', color: 'var(--color-text-muted)' }}>
-                          <span className="font-mono text-[10.5px] uppercase tracking-[0.10em] mr-1.5"
-                            style={{ color: job.accent, fontFamily: "'JetBrains Mono', monospace" }}>
-                            [{impact}]
+                  {/* Bullets */}
+                  <ul className="grid md:grid-cols-2 gap-x-10 gap-y-3">
+                    {job.bullets.map(({ tag, text }, j) => (
+                      <li key={j} className="flex gap-3 leading-[1.65]">
+                        <span className="flex-shrink-0 mt-[7px] w-1.5 h-1.5 rounded-full" style={{ background: job.accent }} />
+                        <span style={{ fontSize: '14px', color: 'var(--color-text-80)' }}>
+                          <span className="font-mono text-[10.5px] uppercase tracking-[0.10em] mr-1.5 font-semibold" style={{ color: job.accent }}>
+                            [{tag}]
                           </span>
                           {text}
                         </span>
@@ -169,6 +156,20 @@ export default function Experience() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Education */}
+        <div className="mt-5 rounded-[16px] px-7 py-5 flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
+          style={{ background: 'var(--color-bg-raised)', border: '1px solid var(--color-border)' }}>
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.20em] mb-1.5" style={{ color: 'var(--color-text-dim)' }}>Education</p>
+            <p className="font-display text-[1.15rem]" style={{ color: 'var(--color-text)' }}>Jawaharlal Nehru Technological University</p>
+            <p className="font-mono text-[12.5px] mt-0.5" style={{ color: 'var(--color-text-muted)' }}>B.Tech in Computer Science</p>
+          </div>
+          <span className="font-mono text-[12px] px-4 py-2 rounded-lg mt-2 md:mt-0"
+            style={{ border: '1px solid var(--color-border)', color: 'var(--color-text-80)' }}>
+            Jun 2018 — Apr 2022
+          </span>
         </div>
       </div>
     </section>
