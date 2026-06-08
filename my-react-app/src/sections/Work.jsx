@@ -13,18 +13,22 @@ const PROJECTS = [
     fullDesc: 'APAIMS 2.0 is the flagship agricultural intelligence platform for Andhra Pradesh government, serving district collectors and agri-department officials. Built with Angular 18 and PrimeNG, it manages 10,000+ farmer records with advanced GIS map layers, ownership analytics, farmer holding category charts, and multi-level export pipelines. Integrated a fully reusable PrimeNG Design System and Node.js middleware for optimised API communication, reducing feature delivery time by 40%.',
     deliverables: ['Angular 18', 'PrimeNG', 'TypeScript', 'Node.js', 'PostgreSQL', 'REST APIs', 'Leaflet', 'Bootstrap'],
     accent: '#F2590D',
-    image: `${BASE}/projects/apaims.png`,
+    images: [
+      `${BASE}/projects/apaims.png`,
+      `${BASE}/projects/apaims-2.png`,
+      `${BASE}/projects/apaims-mobile.png`,
+    ],
   },
   {
-    slug: 'mahaagrinex', num: '02', year: '2024', name: 'MahaAgriNEX',
+    slug: 'mahanidan', num: '02', year: '2024', name: 'Mahanidan',
     tone: 'AgriTech · GIS · Maharashtra',
     client: 'Govt. of Maharashtra', role: 'Lead Frontend Engineer',
     stat: '44.8K', statLabel: 'Villages mapped',
-    desc: 'Agriculture GIS platform for Maharashtra — bund boundary mapping, crop sown tracking, weather analytics, pest forewarning, and farmer database with district-level dashboards.',
-    fullDesc: 'MahaAgriNEX is Maharashtra\'s state-wide agriculture intelligence platform, similar in scope to APAIMS but tailored for Maharashtra\'s 44,800+ villages. Features include bund boundary management (22K villages published, 49.1% coverage), district-wise village distribution charts, crop health monitoring, pest forewarning layers, weather overlays, and a unified farmer database. Delivered as a multi-module Angular application with GeoServer-backed WMS layers.',
-    deliverables: ['Angular', 'GeoServer', 'Leaflet', 'PrimeNG', 'PostgreSQL', 'Bootstrap', 'REST APIs', 'WMS'],
+    desc: 'State-wide agriculture intelligence platform for Maharashtra — crop planning, bund boundary mapping, scheme management, farmer advisory, and district-level dashboards with multi-language support.',
+    fullDesc: 'Mahanidan is the Maharashtra State Agriculture Department\'s flagship platform covering crop planning, GIS mapping, scheme management, and farmer advisory. Features include bund boundary management (22K villages published, 49.1% coverage), district-wise village distribution charts, crop health monitoring, pest forewarning layers, weather overlays, and a unified farmer database. Built with Angular 19 and PrimeNG 19, a config-driven Leaflet map engine, SSR, Keycloak RBAC, and full multi-language (i18n) support.',
+    deliverables: ['Angular 19', 'PrimeNG 19', 'Leaflet GIS', 'Chart.js', 'ECharts', 'Keycloak', 'ngx-translate', 'SSR'],
     accent: '#A855F7',
-    image: `${BASE}/projects/mahaagrinex.png`,
+    images: [`${BASE}/projects/mahaagrinex.png`],
   },
   {
     slug: 'slis-g', num: '03', year: '2023', name: 'SLIS-G',
@@ -35,7 +39,7 @@ const PROJECTS = [
     fullDesc: 'SLIS-G (Space Based Land Use Intelligence System for Guwahati) is an AI-powered geospatial analytics platform that ingests satellite and drone imagery through ML classification models. Integrated RAG-style retrieval patterns and prompt engineering to automate alert generation from classified land-use changes. Led frontend development for AI/ML-driven alert dashboards, drone imagery visualisation layers, and OpenLayers-based spatial query tools. Applied Responsible AI principles for government compliance.',
     deliverables: ['Angular', 'OpenLayers', 'GeoServer', 'ML / AI', 'RAG Patterns', 'Bootstrap', 'REST APIs', 'WMS'],
     accent: '#F59E0B',
-    image: `${BASE}/projects/slis-g.png`,
+    images: [`${BASE}/projects/slis-g.png`],
   },
   {
     slug: 'wbamrut', num: '04', year: '2023', name: 'WB-AMRUT',
@@ -46,7 +50,7 @@ const PROJECTS = [
     fullDesc: 'WB-AMRUT is a GIS-Based Urban Web Governance System for the Department of Urban Development & Municipal Affairs, Govt. of West Bengal. Led a team of 5 engineers to deliver the full Angular UI including interactive draw tools, layer analysis panels, compare/split views for before/after spatial analysis, and Keycloak IAM with RBAC for enterprise-grade user management. Manages water, green-space, and property tax data across West Bengal municipalities.',
     deliverables: ['Angular', 'Leaflet', 'OpenLayers', 'GeoServer', 'Keycloak', 'WMS', 'PostgreSQL', 'Bootstrap'],
     accent: '#22D3EE',
-    image: `${BASE}/projects/wbamrut.png`,
+    images: [`${BASE}/projects/wbamrut.png`],
   },
   {
     slug: 'apwrims', num: '05', year: '2022', name: 'APWRIMS',
@@ -57,7 +61,7 @@ const PROJECTS = [
     fullDesc: 'APWRIMS is developed and maintained under the National Hydrology Project for the AP Water Resources Department. The platform monitors 113 reservoirs (444.57 TMC storage), 38,628 minor irrigation tanks (124.47 TMC), soil moisture levels, ground water (624.87 TMC), and 14,03,859 water conservation structures. Features Highcharts-powered analytics, river gauge stations, GIS district layers, and a bulletin report system. Achieved 51 lakh+ visitors.',
     deliverables: ['Angular', 'Bootstrap', 'Highcharts', 'Leaflet', 'REST APIs', 'PostgreSQL', 'Node.js'],
     accent: '#60A5FA',
-    image: `${BASE}/projects/apwrims.png`,
+    images: [`${BASE}/projects/apwrims.png`],
   },
   {
     slug: 'fieldwise', num: '06', year: '2022', name: 'FieldWise IoT',
@@ -68,7 +72,7 @@ const PROJECTS = [
     fullDesc: 'FieldWise is a national-scale IoT field intelligence platform built during my internship at Vassar Labs\' IoT Division. Integrated real-time sensor data via RESTful APIs into Angular-based dashboards, built interactive Leaflet and OpenLayers GIS maps with state/district boundary layers across India, developed reactive forms for field data collection, and collaborated on UX improvements with senior engineers.',
     deliverables: ['Angular', 'Leaflet', 'OpenLayers', 'REST APIs', 'TypeScript', 'Reactive Forms', 'Bootstrap'],
     accent: '#4ADE80',
-    image: null,
+    images: [`${BASE}/projects/fieldwise.png`],
   },
   {
     slug: 'realpage', num: '07', year: '2023', name: 'RealPage',
@@ -79,40 +83,137 @@ const PROJECTS = [
     fullDesc: 'RealPage is a service-based enterprise portfolio and capability showcase platform. Extended the Angular frontend with a Node.js backend serving dynamic project data via REST endpoints backed by PostgreSQL. Ensured WCAG accessibility compliance, cross-browser compatibility, and fully responsive layouts across all device types. Spring Boot was used for select API services, and Bootstrap provided the responsive grid system. Code is kept private due to client confidentiality.',
     deliverables: ['Angular', 'Node.js', 'Spring Boot', 'PostgreSQL', 'Bootstrap', 'REST APIs', 'WCAG'],
     accent: '#EDE4DC',
-    image: null,
+    images: null,
     private: true,
   },
 ]
 
+/* ── Image Gallery ─────────────────────────────────────────── */
+function ImageGallery({ images, accent, num, year }) {
+  const [idx, setIdx]   = useState(0)
+  const imgRef          = useRef()
+  const navigatingRef   = useRef(false)
+
+  const navigate = (dir) => {
+    if (navigatingRef.current) return
+    navigatingRef.current = true
+    const next = (idx + dir + images.length) % images.length
+    const el   = imgRef.current
+    gsap.to(el, {
+      opacity: 0, x: dir * -28, duration: 0.18, ease: 'power2.in',
+      onComplete: () => {
+        setIdx(next)
+        gsap.fromTo(el,
+          { opacity: 0, x: dir * 28 },
+          { opacity: 1, x: 0, duration: 0.22, ease: 'power2.out', onComplete: () => { navigatingRef.current = false } }
+        )
+      },
+    })
+  }
+
+  return (
+    <div className="relative w-full overflow-hidden" style={{ borderRadius: '20px 20px 0 0', aspectRatio: '16/9' }}>
+      <img
+        ref={imgRef}
+        src={images[idx]}
+        alt={`Screenshot ${idx + 1}`}
+        className="w-full h-full object-cover object-top"
+        style={{ display: 'block' }}
+      />
+
+      <div className="pointer-events-none absolute inset-0" style={{
+        background: 'linear-gradient(to top, var(--color-bg-raised) 0%, transparent 50%)',
+      }} />
+
+      <div className="absolute top-4 left-5 font-mono text-[10px] uppercase tracking-[0.22em]"
+        style={{ color: `${accent}cc` }}>
+        {num} · {year}
+      </div>
+
+      {images.length > 1 && (
+        <>
+          {/* Count badge */}
+          <div className="absolute top-4 right-5 font-mono text-[10px] uppercase tracking-[0.18em] px-2.5 py-1 rounded-full"
+            style={{ background: 'rgba(0,0,0,0.48)', border: `1px solid ${accent}35`, color: `${accent}cc` }}>
+            {idx + 1} / {images.length}
+          </div>
+
+          {/* Prev */}
+          <button
+            onClick={() => navigate(-1)}
+            className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200 hover:scale-110"
+            style={{ background: 'rgba(0,0,0,0.55)', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.85)' }}
+            aria-label="Previous screenshot"
+          >
+            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+              <path d="M8 2L2 8L8 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          {/* Next */}
+          <button
+            onClick={() => navigate(1)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200 hover:scale-110"
+            style={{ background: 'rgba(0,0,0,0.55)', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.85)' }}
+            aria-label="Next screenshot"
+          >
+            <svg width="10" height="16" viewBox="0 0 10 16" fill="none">
+              <path d="M2 2L8 8L2 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          {/* Dots */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                aria-label={`Screenshot ${i + 1}`}
+                style={{
+                  height: '6px',
+                  width: i === idx ? '20px' : '6px',
+                  borderRadius: '9999px',
+                  background: i === idx ? accent : 'rgba(255,255,255,0.38)',
+                  border: 'none',
+                  padding: 0,
+                  cursor: 'pointer',
+                  transition: 'width 0.22s ease, background 0.22s ease',
+                }}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
 /* ── Project Detail Modal ──────────────────────────────────── */
 function ProjectModal({ project, onClose }) {
-  const overlayRef = useRef()
-  const panelRef   = useRef()
-  const closingRef = useRef(false)   // guard against double-close
+  const overlayRef  = useRef()
+  const panelRef    = useRef()
+  const closingRef  = useRef(false)
 
-  /* Lock body scroll, restore on unmount */
   useEffect(() => {
     const scrollY = window.scrollY
-    document.body.style.overflow = 'hidden'
-    document.body.style.position = 'fixed'
-    document.body.style.top      = `-${scrollY}px`
-    document.body.style.width    = '100%'
+    document.body.style.overflow  = 'hidden'
+    document.body.style.position  = 'fixed'
+    document.body.style.top       = `-${scrollY}px`
+    document.body.style.width     = '100%'
     return () => {
-      document.body.style.overflow = ''
-      document.body.style.position = ''
-      document.body.style.top      = ''
-      document.body.style.width    = ''
+      document.body.style.overflow  = ''
+      document.body.style.position  = ''
+      document.body.style.top       = ''
+      document.body.style.width     = ''
       window.scrollTo(0, scrollY)
     }
   }, [])
 
-  /* Open animation */
   useEffect(() => {
-    gsap.fromTo(overlayRef.current, { opacity: 0 },       { opacity: 1,  duration: 0.3,  ease: 'power2.out' })
+    gsap.fromTo(overlayRef.current, { opacity: 0 },        { opacity: 1,  duration: 0.3,  ease: 'power2.out' })
     gsap.fromTo(panelRef.current,   { y: 32, opacity: 0 }, { y: 0, opacity: 1, duration: 0.42, ease: 'expo.out' })
   }, [])
 
-  /* Close: animate out then call onClose — uses refs so never stale */
   const close = () => {
     if (closingRef.current) return
     closingRef.current = true
@@ -120,12 +221,13 @@ function ProjectModal({ project, onClose }) {
     gsap.to(overlayRef.current, { opacity: 0, duration: 0.3, ease: 'power2.in', onComplete: onClose })
   }
 
-  /* Esc key */
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') close() }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
   }, []) // eslint-disable-line
+
+  const hasImages = project.images?.length > 0
 
   return (
     <div
@@ -151,20 +253,14 @@ function ProjectModal({ project, onClose }) {
           </svg>
         </button>
 
-        {/* Image */}
-        {project.image && (
-          <div className="relative w-full overflow-hidden" style={{ borderRadius: '20px 20px 0 0', aspectRatio: '16/9' }}>
-            <img src={project.image} alt={project.name}
-              className="w-full h-full object-cover object-top"
-              style={{ display: 'block' }} />
-            <div className="pointer-events-none absolute inset-0" style={{
-              background: 'linear-gradient(to top, var(--color-bg-raised) 0%, transparent 50%)',
-            }} />
-            <div className="absolute top-4 left-5 font-mono text-[10px] uppercase tracking-[0.22em]"
-              style={{ color: `${project.accent}cc` }}>
-              {project.num} · {project.year}
-            </div>
-          </div>
+        {/* Gallery */}
+        {hasImages && (
+          <ImageGallery
+            images={project.images}
+            accent={project.accent}
+            num={project.num}
+            year={project.year}
+          />
         )}
 
         {/* Content */}
@@ -227,8 +323,8 @@ function ProjectModal({ project, onClose }) {
             </div>
           </div>
 
-          {/* No image / private notice */}
-          {!project.image && (
+          {/* Private notice */}
+          {!hasImages && (
             <div className="mt-6 flex items-center gap-3 rounded-xl px-4 py-3"
               style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
               {project.private ? (
@@ -255,6 +351,9 @@ function ProjectModal({ project, onClose }) {
 
 /* ── Project Card ──────────────────────────────────────────── */
 function ProjectCard({ project, onOpen }) {
+  const thumb    = project.images?.[0]
+  const hasMulti = project.images?.length > 1
+
   return (
     <div className="group w-full shrink-0 md:w-[500px]">
       <article className="flex flex-col gap-5">
@@ -268,8 +367,8 @@ function ProjectCard({ project, onOpen }) {
               isolation: 'isolate',
             }}>
 
-            {project.image ? (
-              <img src={project.image} alt={project.name}
+            {thumb ? (
+              <img src={thumb} alt={project.name}
                 className="absolute inset-0 h-full w-full object-cover object-top scale-[1.18] transition-transform duration-700 ease-[cubic-bezier(0.34,1.15,0.64,1)] group-hover:scale-[1.28]"
                 loading="lazy" />
             ) : (
@@ -289,7 +388,15 @@ function ProjectCard({ project, onOpen }) {
                 style={{ color: `${project.accent}f0`, background: 'rgba(0,0,0,0.38)', border: `1px solid ${project.accent}28` }}>
                 {project.tone}
               </span>
-              <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{project.num}</span>
+              <div className="flex items-center gap-2">
+                {hasMulti && (
+                  <span className="rounded-full px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em]"
+                    style={{ color: `${project.accent}cc`, background: 'rgba(0,0,0,0.48)', border: `1px solid ${project.accent}30` }}>
+                    {project.images.length} shots
+                  </span>
+                )}
+                <span className="font-mono text-[10px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{project.num}</span>
+              </div>
             </div>
 
             {/* Stat */}
@@ -304,27 +411,27 @@ function ProjectCard({ project, onOpen }) {
               </span>
             </div>
 
-            {!project.image && (
+            {!thumb && (
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="font-mono text-[9.5px] uppercase tracking-[0.28em] select-none"
                   style={{ color: 'var(--color-text-ultra)' }}>image coming soon</span>
               </div>
             )}
 
-            {/* Hover CTA — now clickable */}
+            {/* Hover CTA */}
             <button
               onClick={() => onOpen(project)}
               className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 w-full cursor-pointer"
               aria-label={`View ${project.name}`}>
               <span className="rounded-full px-6 py-3 font-mono text-[10.5px] uppercase tracking-[0.26em] text-white backdrop-blur-md"
                 style={{ background: `${project.accent}25`, border: `1px solid ${project.accent}55` }}>
-                View Project
+                {hasMulti ? `View ${project.images.length} Screenshots` : 'View Project'}
               </span>
             </button>
           </div>
         </div>
 
-        {/* Below card — clicking name also opens */}
+        {/* Below card */}
         <div className="flex flex-col gap-2 px-1 cursor-pointer" onClick={() => onOpen(project)}>
           <div className="flex items-baseline justify-between gap-3">
             <span className="font-display text-[19px] leading-tight tracking-[-0.01em] md:text-[21px] hover:underline decoration-[var(--color-accent)] underline-offset-4"

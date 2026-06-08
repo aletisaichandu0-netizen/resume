@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '../animations/gsap'
+import BusinessmanScene from '../components/BusinessmanScene'
 
 const ROW1 = ['A', 'L', 'E', 'T', 'I']
 const ROW2 = ['S', 'A', 'I', ' ', 'C', 'H', 'A', 'N', 'D', 'U']
@@ -35,7 +36,7 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} id="hero"
-      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 pb-12 pt-24 sm:px-6"
+      className="relative min-h-[100svh] overflow-hidden px-4 pb-12 pt-24 sm:px-6"
       style={{ background: 'var(--color-bg)' }}>
 
       {/* Radial glow */}
@@ -49,85 +50,126 @@ export default function Hero() {
       <div className="corner-glitch corner-bl" />
       <div className="corner-glitch corner-br" />
 
-      {/* Available badge */}
-      <div data-hero-kicker className="relative z-10 mb-8">
-        <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.22em]"
-          style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border-strong)', color: 'var(--color-text-dim)' }}>
-          <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: 'var(--color-success)' }} />
-          Available · Hyderabad, India
-        </span>
-      </div>
+      {/* ── Two-column grid on lg+, stacked on mobile ── */}
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-96px)] max-w-[1200px] flex-col items-center justify-center lg:grid lg:grid-cols-[420px_1fr] lg:gap-12 lg:items-center">
 
-      {/* Name — two rows */}
-      <div data-hero-letters className="relative z-10 flex flex-col items-center text-center select-none">
-        {/* Row 1: ALETI */}
-        <ul className="flex list-none items-center justify-center leading-[0.88] tracking-[-0.02em]"
-          style={{ fontSize: 'clamp(3.2rem, 22vw, 18rem)' }}>
-          {ROW1.map((letter, i) => (
-            <li key={i} className="overflow-hidden" style={{ color: 'var(--color-yellow)', paddingInline: '1px' }}>
-              <span data-hero-letter className="block font-display">{letter}</span>
-            </li>
-          ))}
-        </ul>
-        {/* Row 2: SAI CHANDU */}
-        <ul className="flex list-none items-center justify-center leading-[0.88] tracking-[-0.01em]"
-          style={{ fontSize: 'clamp(1.6rem, 11vw, 9rem)' }}>
-          {ROW2.map((letter, i) => (
-            <li key={i} className="overflow-hidden"
-              style={{
-                color: letter === ' ' ? 'transparent' : 'var(--color-accent)',
-                paddingInline: letter === ' ' ? 'clamp(4px, 1.5vw, 12px)' : '1px',
-              }}>
-              <span data-hero-letter className="block font-display">{letter === ' ' ? '·' : letter}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Taglines */}
-      <div className="relative z-10 mt-3 text-center" style={{ color: 'var(--color-accent)' }}>
-        <h2 className="font-display uppercase" style={{ fontSize: 'clamp(0.6rem, 1.9vw, 1.55rem)', letterSpacing: '0.12em' }}>
-          <span data-hero-tagline className="block overflow-hidden">Senior Frontend Engineer · Full Stack Developer</span>
-          <span data-hero-tagline className="block overflow-hidden" style={{ color: 'var(--color-text-dim)', fontSize: '0.78em' }}>
-            GIS & AI Integration Specialist · Angular · React · TypeScript
-          </span>
-        </h2>
-      </div>
-
-      {/* Bio */}
-      <p data-hero-bio className="relative z-10 mt-6 max-w-[54ch] text-center leading-relaxed"
-        style={{ fontSize: 'clamp(13.5px, 1.3vw, 15.5px)', color: 'var(--color-text-muted)' }}>
-        4+ years designing, building, and deploying scalable enterprise-grade web applications
-        across government, agriculture, and climate-tech domains at Vassar Labs.
-      </p>
-
-      {/* CTAs */}
-      <div data-hero-cta className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4">
-        <a href="#work"
-          onClick={(e) => { e.preventDefault(); document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' }) }}
-          className="flex items-center gap-2.5 rounded-xl px-7 py-3.5 font-sans text-sm font-medium transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
-          style={{ background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-yellow) 100%)', color: '#0d0b08', boxShadow: '0 4px 28px var(--color-accent-glow), 0 2px 8px rgba(0,0,0,0.3)' }}>
-          View Work
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
-            <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-          </svg>
-        </a>
-        <a href="#contact"
-          onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
-          className="flex items-center gap-2.5 rounded-xl px-7 py-3.5 font-sans text-sm font-medium transition-all duration-300"
-          style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', color: 'var(--color-text-80)' }}>
-          Get in touch
-        </a>
-      </div>
-
-      {/* Quick stats */}
-      <div data-hero-stats className="relative z-10 mt-12 flex flex-wrap items-center justify-center gap-8">
-        {QUICK_STATS.map(({ n, label }, i) => (
-          <div key={i} className="flex flex-col items-center gap-0.5">
-            <span className="font-display leading-none" style={{ fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', color: 'var(--color-accent)' }}>{n}</span>
-            <span className="font-mono text-[9.5px] uppercase tracking-[0.22em]" style={{ color: 'var(--color-text-ultra)' }}>{label}</span>
+        {/* ── Left: 3D Businessman ── */}
+        <div className="hidden lg:flex flex-col items-center justify-center self-stretch">
+          {/* Glow backdrop */}
+          <div className="pointer-events-none absolute" style={{
+            width: 460, height: 560,
+            borderRadius: '50%',
+            background: 'radial-gradient(ellipse at 40% 60%, var(--color-accent) 0%, transparent 68%)',
+            opacity: 0.07, left: -20,
+          }} />
+          <BusinessmanScene
+            style={{
+              width: 380,
+              height: 520,
+              borderRadius: 24,
+            }}
+          />
+          {/* Floating label under figure */}
+          <div className="mt-4 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--color-success)' }} />
+            <span className="font-mono text-[9.5px] uppercase tracking-[0.24em]"
+              style={{ color: 'var(--color-text-dim)' }}>
+              Available for hire
+            </span>
           </div>
-        ))}
+        </div>
+
+        {/* ── Right: Text content ── */}
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+
+          {/* Available badge (mobile only) */}
+          <div data-hero-kicker className="mb-7 lg:hidden">
+            <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-[10.5px] uppercase tracking-[0.22em]"
+              style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border-strong)', color: 'var(--color-text-dim)' }}>
+              <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: 'var(--color-success)' }} />
+              Available · Hyderabad, India
+            </span>
+          </div>
+
+          {/* Location kicker — desktop */}
+          <div data-hero-kicker className="mb-5 hidden lg:flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: 'var(--color-success)' }} />
+            <span className="font-mono text-[10px] uppercase tracking-[0.22em]"
+              style={{ color: 'var(--color-text-dim)' }}>
+              Hyderabad, India
+            </span>
+          </div>
+
+          {/* Name — two rows */}
+          <div data-hero-letters className="select-none flex flex-col items-center lg:items-start">
+            <ul className="flex list-none items-center leading-[0.88] tracking-[-0.025em]"
+              style={{ fontSize: 'clamp(2.8rem, 11vw, 7.5rem)' }}>
+              {ROW1.map((letter, i) => (
+                <li key={i} className="overflow-hidden" style={{ color: 'var(--color-yellow)', paddingInline: '1px' }}>
+                  <span data-hero-letter className="block font-display">{letter}</span>
+                </li>
+              ))}
+            </ul>
+            <ul className="flex list-none items-center leading-[0.88] tracking-[-0.015em]"
+              style={{ fontSize: 'clamp(1.4rem, 5.5vw, 3.8rem)' }}>
+              {ROW2.map((letter, i) => (
+                <li key={i} className="overflow-hidden"
+                  style={{
+                    color: letter === ' ' ? 'transparent' : 'var(--color-accent)',
+                    paddingInline: letter === ' ' ? 'clamp(3px, 1vw, 8px)' : '1px',
+                  }}>
+                  <span data-hero-letter className="block font-display">{letter === ' ' ? '·' : letter}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Taglines */}
+          <div className="mt-4" style={{ color: 'var(--color-accent)' }}>
+            <h2 className="font-display uppercase" style={{ fontSize: 'clamp(0.55rem, 1.5vw, 1.1rem)', letterSpacing: '0.12em' }}>
+              <span data-hero-tagline className="block overflow-hidden">Senior Frontend Engineer · Full Stack Developer</span>
+              <span data-hero-tagline className="block overflow-hidden mt-0.5" style={{ color: 'var(--color-text-dim)', fontSize: '0.85em' }}>
+                GIS & AI Integration Specialist · Angular · React · TypeScript
+              </span>
+            </h2>
+          </div>
+
+          {/* Bio */}
+          <p data-hero-bio className="mt-6 max-w-[52ch] leading-relaxed"
+            style={{ fontSize: 'clamp(13px, 1.2vw, 15px)', color: 'var(--color-text-muted)' }}>
+            4+ years designing, building, and deploying scalable enterprise-grade web applications
+            across government, agriculture, and climate-tech domains at Vassar Labs.
+          </p>
+
+          {/* CTAs */}
+          <div data-hero-cta className="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#work"
+              onClick={(e) => { e.preventDefault(); document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' }) }}
+              className="flex items-center gap-2.5 rounded-xl px-7 py-3.5 font-sans text-sm font-medium transition-all duration-300 hover:opacity-90 hover:scale-[1.02]"
+              style={{ background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-yellow) 100%)', color: '#0d0b08', boxShadow: '0 4px 28px var(--color-accent-glow), 0 2px 8px rgba(0,0,0,0.3)' }}>
+              View Work
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+                <path d="M3 13L13 3M13 3H5M13 3V11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+            </a>
+            <a href="#contact"
+              onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }}
+              className="flex items-center gap-2.5 rounded-xl px-7 py-3.5 font-sans text-sm font-medium transition-all duration-300"
+              style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', color: 'var(--color-text-80)' }}>
+              Get in touch
+            </a>
+          </div>
+
+          {/* Quick stats */}
+          <div data-hero-stats className="mt-10 flex flex-wrap items-center gap-7">
+            {QUICK_STATS.map(({ n, label }, i) => (
+              <div key={i} className="flex flex-col gap-0.5">
+                <span className="font-display leading-none" style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.85rem)', color: 'var(--color-accent)' }}>{n}</span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.20em]" style={{ color: 'var(--color-text-ultra)' }}>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Scroll hint */}

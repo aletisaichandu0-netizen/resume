@@ -10,8 +10,8 @@ const STATS = [
 
 const DIFFERENTIATORS = [
   { icon: '◈', title: 'GIS Specialist',        desc: 'Leaflet · OpenLayers · GeoServer · WMS · Satellite/Drone data · Spatial Analysis' },
-  { icon: '◉', title: 'AI/ML Integration',      desc: 'RAG Pipelines · Azure OpenAI · Prompt Engineering · LangChain · Semantic Kernel' },
-  { icon: '◐', title: 'Enterprise Angular',      desc: 'v2–18 · PrimeNG Design System · Micro Frontends · 10K+ record systems' },
+  { icon: '◉', title: 'AI/ML Integration',      desc: 'RAG Pipelines · Azure OpenAI · Prompt Engineering · GitHub Copilot · Claude Code' },
+  { icon: '◐', title: 'Enterprise Angular',      desc: 'v2–19 · PrimeNG Design System · Micro Frontends · 10K+ record systems' },
 ]
 
 export default function About() {
