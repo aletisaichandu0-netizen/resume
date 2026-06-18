@@ -24,6 +24,7 @@ export default function Hero() {
         .from('[data-hero-bio]',       { opacity: 0, y: 16, duration: 0.6 }, '-=0.35')
         .from('[data-hero-cta]',       { opacity: 0, y: 14, duration: 0.55 }, '-=0.25')
         .from('[data-hero-stats] > *', { opacity: 0, y: 12, duration: 0.5, stagger: 0.08 }, '-=0.2')
+        .from('[data-hero-scene]',     { opacity: 0, x: -28, scale: 0.96, duration: 1 }, '-=1.2')
         .from('[data-scroll-hint]',    { opacity: 0, y: 8,  duration: 0.4 }, '-=0.1')
 
       gsap.to('[data-hero-letters]', {
@@ -54,7 +55,7 @@ export default function Hero() {
       <div className="relative z-10 mx-auto flex min-h-[calc(100svh-96px)] max-w-[1200px] flex-col items-center justify-center lg:grid lg:grid-cols-[420px_1fr] lg:gap-12 lg:items-center">
 
         {/* ── Left: 3D Businessman ── */}
-        <div className="hidden lg:flex flex-col items-center justify-center self-stretch">
+        <div data-hero-scene className="hidden lg:flex flex-col items-center justify-center self-stretch">
           {/* Glow backdrop */}
           <div className="pointer-events-none absolute" style={{
             width: 460, height: 560,
@@ -62,13 +63,40 @@ export default function Hero() {
             background: 'radial-gradient(ellipse at 40% 60%, var(--color-accent) 0%, transparent 68%)',
             opacity: 0.07, left: -20,
           }} />
-          <BusinessmanScene
+          <div
+            className="group relative overflow-hidden rounded-[28px] border transition-[border-color,box-shadow] duration-500"
             style={{
-              width: 380,
-              height: 520,
-              borderRadius: 24,
+              borderColor: 'var(--color-border)',
+              background: 'radial-gradient(circle at 50% 58%, var(--color-accent-glow), transparent 62%)',
+              boxShadow: 'inset 0 0 70px rgba(0,0,0,0.28), var(--shadow-glow)',
             }}
-          />
+          >
+            <div className="pointer-events-none absolute inset-x-6 top-5 z-10 flex items-center justify-between">
+              <span className="font-mono text-[8px] uppercase tracking-[0.22em]"
+                style={{ color: 'var(--color-text-ultra)' }}>
+                Interactive profile
+              </span>
+              <span className="flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.18em]"
+                style={{ color: 'var(--color-text-dim)' }}>
+                <span className="h-1 w-1 rounded-full animate-pulse" style={{ background: 'var(--color-accent)' }} />
+                Live
+              </span>
+            </div>
+            <BusinessmanScene
+              className="transition-transform duration-700 group-hover:scale-[1.015]"
+              style={{
+                width: 380,
+                height: 520,
+                borderRadius: 24,
+              }}
+            />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
+              style={{ background: 'linear-gradient(to top, var(--color-bg), transparent)' }} />
+            <span className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[8px] uppercase tracking-[0.2em] opacity-45 transition-opacity duration-300 group-hover:opacity-80"
+              style={{ color: 'var(--color-text-muted)' }}>
+              Move cursor to interact
+            </span>
+          </div>
           {/* Floating label under figure */}
           <div className="mt-4 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--color-success)' }} />
