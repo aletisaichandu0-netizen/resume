@@ -72,7 +72,7 @@ export default function About() {
                   style={{ background: 'var(--color-bg-raised)', border: '1px solid var(--color-stat-border)' }}>
                   <span className="font-display leading-none" style={{ fontSize: 'clamp(22px,2.8vw,38px)', color: 'var(--color-yellow)' }}>{n}</span>
                   <span className="font-mono text-[11px] uppercase tracking-[0.16em]" style={{ color: 'var(--color-text-80)' }}>{label}</span>
-                  <span className="font-mono text-[10px]" style={{ color: 'var(--color-text-ultra)' }}>{sub}</span>
+                  <span className="font-mono text-[11px]" style={{ color: 'var(--color-text-dim)' }}>{sub}</span>
                 </div>
               ))}
             </div>
@@ -86,7 +86,7 @@ export default function About() {
               'Proven track record leading cross-functional teams, owning feature delivery end-to-end, and optimising performance at scale — with a consulting mindset focused on translating complex requirements into reliable, maintainable solutions.',
             ].map((text, i) => (
               <p key={i} data-about-para className="leading-[1.78]"
-                style={{ fontSize: 'clamp(13.5px, 1.25vw, 15.5px)', color: 'var(--color-text-muted)', maxWidth: '54ch' }}>
+                style={{ fontSize: 'clamp(15px, 1.25vw, 16px)', color: 'var(--color-text-muted)', maxWidth: '54ch' }}>
                 {i === 1
                   ? <><span style={{ color: 'var(--color-text-80)' }}>What sets me apart: </span>{text.replace('What sets me apart: ', '')}</>
                   : text}
@@ -100,7 +100,7 @@ export default function About() {
                   <span className="mt-0.5 text-base flex-shrink-0" style={{ color: 'var(--color-accent)' }}>{icon}</span>
                   <div>
                     <p className="font-mono text-[11px] uppercase tracking-[0.16em] mb-0.5" style={{ color: 'var(--color-text-80)' }}>{title}</p>
-                    <p className="font-mono text-[10.5px]" style={{ color: 'var(--color-text-ultra)' }}>{desc}</p>
+                    <p className="font-mono text-[11.5px] leading-relaxed" style={{ color: 'var(--color-text-dim)' }}>{desc}</p>
                   </div>
                 </div>
               ))}

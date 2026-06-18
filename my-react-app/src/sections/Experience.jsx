@@ -120,7 +120,7 @@ export default function Experience() {
                         <h3 className="font-display leading-tight" style={{ fontSize: 'clamp(20px,2.2vw,30px)', color: 'var(--color-text)' }}>
                           {job.company}
                         </h3>
-                        <span className="rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em]"
+                        <span className="rounded-full px-2.5 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.1em]"
                           style={{ background: `${job.accent}18`, color: job.accent, border: `1px solid ${job.accent}30` }}>
                           {job.type}
                         </span>
@@ -134,7 +134,7 @@ export default function Experience() {
                         <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: job.accent }} />
                         {job.period}
                       </span>
-                      <p className="mt-1.5 font-mono text-[11px]" style={{ color: 'var(--color-text-dim)' }}>{job.duration}</p>
+                      <p className="mt-1.5 font-mono text-[12px]" style={{ color: 'var(--color-text-dim)' }}>{job.duration}</p>
                     </div>
                   </div>
 
@@ -143,8 +143,8 @@ export default function Experience() {
                     {job.bullets.map(({ tag, text }, j) => (
                       <li key={j} className="flex gap-3 leading-[1.65]">
                         <span className="flex-shrink-0 mt-[7px] w-1.5 h-1.5 rounded-full" style={{ background: job.accent }} />
-                        <span style={{ fontSize: '14px', color: 'var(--color-text-80)' }}>
-                          <span className="font-mono text-[10.5px] uppercase tracking-[0.10em] mr-1.5 font-semibold" style={{ color: job.accent }}>
+                        <span style={{ fontSize: '15px', color: 'var(--color-text-80)' }}>
+                          <span className="font-mono text-[11px] uppercase tracking-[0.08em] mr-1.5 font-semibold" style={{ color: job.accent }}>
                             [{tag}]
                           </span>
                           {text}
@@ -162,7 +162,7 @@ export default function Experience() {
         <div className="mt-5 rounded-[16px] px-7 py-5 flex flex-col gap-2 md:flex-row md:items-center md:justify-between"
           style={{ background: 'var(--color-bg-raised)', border: '1px solid var(--color-border)' }}>
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.20em] mb-1.5" style={{ color: 'var(--color-text-dim)' }}>Education</p>
+            <p className="font-mono text-[12px] font-medium uppercase tracking-[0.16em] mb-1.5" style={{ color: 'var(--color-text-dim)' }}>Education</p>
             <p className="font-display text-[1.15rem]" style={{ color: 'var(--color-text)' }}>Jawaharlal Nehru Technological University</p>
             <p className="font-mono text-[12.5px] mt-0.5" style={{ color: 'var(--color-text-muted)' }}>B.Tech in Computer Science</p>
           </div>

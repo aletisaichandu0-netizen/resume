@@ -50,7 +50,7 @@ function ContactCard({ onClose }) {
 
       <div className="flex items-center gap-2 mb-1">
         <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: 'var(--color-text-dim)' }}>
+        <span className="font-mono text-[11px] font-medium uppercase tracking-[0.16em]" style={{ color: 'var(--color-text-dim)' }}>
           Available for hire
         </span>
       </div>
@@ -221,7 +221,7 @@ export default function Navbar() {
               <li key={link.label} ref={(el) => { navBtnRefs.current[link.label] = el }}>
                 <button
                   onClick={() => { setActiveNav(link.label); scroll(link) }}
-                  className="relative z-10 block px-4 py-[9px] font-mono text-[11px] tracking-[0.12em] uppercase transition-colors duration-300"
+                  className="relative z-10 block px-4 py-[9px] font-mono text-[12px] font-medium tracking-[0.1em] uppercase transition-colors duration-300"
                   style={{ color: activeNav === link.label ? 'var(--color-text)' : 'var(--color-text-muted)' }}
                 >
                   {link.label}
@@ -242,7 +242,7 @@ export default function Navbar() {
 
           {/* Available badge — md+ only */}
           <a href="mailto:aletisaichandu0@gmail.com"
-            className="hidden md:flex items-center gap-2 rounded-full px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.10em] transition-all duration-300 whitespace-nowrap"
+            className="hidden md:flex items-center gap-2 rounded-full px-3.5 py-1.5 font-mono text-[12px] font-medium uppercase tracking-[0.08em] transition-all duration-300 whitespace-nowrap"
             style={{ background: 'var(--color-accent-dim)', border: '1px solid var(--color-accent)', color: 'var(--color-accent)' }}>
             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
             Available
@@ -297,7 +297,7 @@ export default function Navbar() {
             <li>
               <a href="tel:+919494506038"
                 className="flex items-center gap-2.5 w-full rounded-xl px-4 py-3 font-mono text-[11px] tracking-[0.08em]"
-                style={{ color: 'var(--color-text-dim)' }}>
+                style={{ color: 'var(--color-text-muted)' }}>
                 <span style={{ color: 'var(--color-accent)' }}>✆</span> +91 94945 06038
               </a>
             </li>

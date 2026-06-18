@@ -287,18 +287,18 @@ function ProjectModal({ project, onClose }) {
               <span className="font-archivo leading-none" style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: project.accent }}>
                 {project.stat}
               </span>
-              <span className="font-mono text-[9.5px] uppercase tracking-[0.18em]"
+              <span className="font-mono text-[10.5px] font-medium uppercase tracking-[0.14em]"
                 style={{ color: `${project.accent}80` }}>{project.statLabel}</span>
             </div>
           </div>
 
           {/* Meta row */}
           <div className="flex flex-wrap gap-2 mb-6">
-            <span className="rounded-full px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em]"
+            <span className="rounded-full px-3 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.1em]"
               style={{ background: `${project.accent}12`, border: `1px solid ${project.accent}28`, color: project.accent }}>
               {project.client}
             </span>
-            <span className="rounded-full px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em]"
+            <span className="rounded-full px-3 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.1em]"
               style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', color: 'var(--color-text-dim)' }}>
               {project.role}
             </span>
@@ -309,7 +309,7 @@ function ProjectModal({ project, onClose }) {
 
           {/* Full description */}
           <p className="mb-8 leading-[1.82]"
-            style={{ fontSize: 'clamp(14px, 1.35vw, 16px)', color: 'var(--color-text-muted)' }}>
+            style={{ fontSize: 'clamp(15px, 1.35vw, 17px)', color: 'var(--color-text-muted)' }}>
             {project.fullDesc}
           </p>
 
@@ -322,7 +322,7 @@ function ProjectModal({ project, onClose }) {
             <div className="flex flex-wrap gap-2">
               {project.deliverables.map(d => (
                 <span key={d}
-                  className="rounded-full px-4 py-2 font-mono text-[11px] tracking-[0.05em]"
+                  className="rounded-full px-4 py-2 font-mono text-[12px] tracking-[0.04em]"
                   style={{ border: `1px solid ${project.accent}28`, color: 'var(--color-text-muted)', background: `${project.accent}0A` }}>
                   {d}
                 </span>
@@ -391,13 +391,13 @@ function ProjectCard({ project, onOpen }) {
 
             {/* Top meta */}
             <div className="absolute inset-x-0 top-0 flex items-center justify-between px-6 py-5 md:px-7 md:py-6">
-              <span className="rounded-full px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.16em] backdrop-blur-md"
+              <span className="rounded-full px-2.5 py-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.12em] backdrop-blur-md"
                 style={{ color: `${project.accent}f0`, background: 'rgba(0,0,0,0.38)', border: `1px solid ${project.accent}28` }}>
                 {project.tone}
               </span>
               <div className="flex items-center gap-2">
                 {hasMulti && (
-                  <span className="rounded-full px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em]"
+                  <span className="rounded-full px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.1em]"
                     style={{ color: `${project.accent}cc`, background: 'rgba(0,0,0,0.48)', border: `1px solid ${project.accent}30` }}>
                     {project.images.length} shots
                   </span>
@@ -412,7 +412,7 @@ function ProjectCard({ project, onOpen }) {
                 style={{ color: project.accent, textShadow: `0 0 40px ${project.accent}55` }}>
                 {project.stat}
               </span>
-              <span className="mt-1 block font-mono text-[9.5px] uppercase tracking-[0.2em]"
+              <span className="mt-1 block font-mono text-[10.5px] font-medium uppercase tracking-[0.14em]"
                 style={{ color: `${project.accent}90` }}>
                 {project.statLabel}
               </span>
@@ -443,22 +443,22 @@ function ProjectCard({ project, onOpen }) {
           <div className="flex items-baseline justify-between gap-3">
             <span className="font-display text-[19px] leading-tight tracking-[-0.01em] md:text-[21px] hover:underline decoration-[var(--color-accent)] underline-offset-4"
               style={{ color: 'var(--color-text)' }}>{project.name}</span>
-            <span className="shrink-0 font-mono text-[10.5px] tracking-[0.1em]"
-              style={{ color: 'var(--color-text-ultra)' }}>{project.year}</span>
+            <span className="shrink-0 font-mono text-[11.5px] tracking-[0.08em]"
+              style={{ color: 'var(--color-text-dim)' }}>{project.year}</span>
           </div>
-          <div className="flex flex-wrap items-center gap-1.5 font-mono text-[9.5px] uppercase tracking-[0.14em]"
+          <div className="flex flex-wrap items-center gap-1.5 font-mono text-[10.5px] font-medium uppercase tracking-[0.1em]"
             style={{ color: 'var(--color-text-dim)' }}>
             <span>{project.client}</span>
             <span style={{ opacity: 0.4 }}>·</span>
             <span>{project.role}</span>
           </div>
           <p className="leading-[1.7] font-light"
-            style={{ fontSize: '13.5px', color: 'var(--color-text-muted)', marginTop: '2px' }}>
+            style={{ fontSize: '15px', color: 'var(--color-text-muted)', marginTop: '2px' }}>
             {project.desc}
           </p>
           <div className="flex flex-wrap gap-1.5 pt-1.5">
             {project.deliverables.slice(0, 5).map(d => (
-              <span key={d} className="rounded-full px-3 py-[4px] font-mono text-[9.5px] tracking-[0.05em]"
+              <span key={d} className="rounded-full px-3 py-[5px] font-mono text-[10.5px] tracking-[0.04em]"
                 style={{ border: `1px solid ${project.accent}25`, color: 'var(--color-text-dim)', background: `${project.accent}08` }}>
                 {d}
               </span>
@@ -520,7 +520,7 @@ export default function Work() {
               Selected<br />
               <span style={{ color: 'var(--color-accent)', fontStyle: 'italic' }}>Work</span>
             </h2>
-            <p className="max-w-[44ch] leading-[1.75]" style={{ fontSize: '14px', color: 'var(--color-text-dim)' }}>
+            <p className="max-w-[44ch] leading-[1.75]" style={{ fontSize: '15px', color: 'var(--color-text-muted)' }}>
               7 production platforms — government GIS, AI analytics, enterprise agritech & full-stack. Click any card for details.
             </p>
           </div>

@@ -71,7 +71,7 @@ function Marquee({ items, reverse, dim }) {
         borderBottom: '1px solid var(--color-border)',
       }}>
       <div ref={trackRef} className="marquee-track select-none items-center"
-        style={{ color: dim ? 'var(--color-text-ultra)' : 'var(--color-text-dim)' }}>
+        style={{ color: dim ? 'var(--color-text-dim)' : 'var(--color-text-muted)' }}>
         {[...items, ...items, ...items].map((item, i) => (
           <TechChip key={i} {...item} />
         ))}

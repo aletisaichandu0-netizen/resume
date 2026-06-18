@@ -71,7 +71,7 @@ function ServiceCard({ service }) {
             <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: service.accent }} />
             <span className="font-mono text-[10px] uppercase tracking-[0.28em]" style={{ color: service.accent }}>{service.number}</span>
           </div>
-          <span className="mt-0.5 shrink-0 rounded-full px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.12em]"
+          <span className="mt-0.5 shrink-0 rounded-full px-2.5 py-1 font-mono text-[10.5px] font-medium uppercase tracking-[0.1em]"
             style={{ background: `${service.accent}14`, color: `${service.accent}cc`, border: `1px solid ${service.accent}22` }}>
             {service.highlight}
           </span>
@@ -81,12 +81,12 @@ function ServiceCard({ service }) {
           <h3 className="mb-2.5 font-display text-[1.35rem] leading-tight tracking-[-0.01em]" style={{ color: 'var(--color-text)' }}>
             {service.title}
           </h3>
-          <p className="text-[13.5px] leading-[1.78]" style={{ color: 'var(--color-text-muted)' }}>{service.desc}</p>
+          <p className="text-[15px] leading-[1.75]" style={{ color: 'var(--color-text-muted)' }}>{service.desc}</p>
         </div>
 
         <div className="flex flex-wrap gap-1.5">
           {service.tags.map((tag) => (
-            <span key={tag} className="rounded-full px-2.5 py-[5px] font-mono text-[10px] tracking-[0.05em]"
+            <span key={tag} className="rounded-full px-2.5 py-[5px] font-mono text-[11px] tracking-[0.04em]"
               style={{ border: `1px solid ${service.accent}25`, color: 'var(--color-text-dim)', background: `${service.accent}08` }}>
               {tag}
             </span>
@@ -144,7 +144,7 @@ export default function Stack() {
               }}>
               Built to ship.<br /><span style={{ fontStyle: 'italic' }}>Tooled to scale.</span>
             </h2>
-            <p className="max-w-[38ch] leading-[1.78] md:text-right" style={{ fontSize: '13.5px', color: 'var(--color-text-dim)' }}>
+            <p className="max-w-[38ch] leading-[1.75] md:text-right" style={{ fontSize: '15px', color: 'var(--color-text-muted)' }}>
               Expert Angular & React frontend · GIS specialist · AI/ML integration · Full-stack delivery — all in one profile.
             </p>
           </div>
@@ -163,7 +163,7 @@ export default function Stack() {
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] mb-3" style={{ color: 'var(--color-text-dim)' }}>{label}</p>
               <div className="flex flex-col gap-1.5">
                 {items.map(item => (
-                  <span key={item} className="font-mono text-[10.5px]" style={{ color: 'var(--color-text-ultra)' }}>{item}</span>
+                  <span key={item} className="font-mono text-[11.5px]" style={{ color: 'var(--color-text-dim)' }}>{item}</span>
                 ))}
               </div>
             </div>
@@ -178,7 +178,7 @@ export default function Stack() {
           </span>
           <div className="flex flex-wrap gap-2">
             {EXPLORING.map(t => (
-              <span key={t} className="font-mono text-[10.5px] px-3 py-1 rounded-full"
+              <span key={t} className="font-mono text-[11.5px] px-3 py-1 rounded-full"
                 style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', color: 'var(--color-text-dim)' }}>
                 {t}
               </span>

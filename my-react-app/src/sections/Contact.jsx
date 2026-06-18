@@ -60,7 +60,7 @@ export default function Contact() {
         </div>
 
         <p data-ct-sub className="mb-10 max-w-[48ch] leading-[1.78]"
-          style={{ fontSize: 'clamp(13.5px,1.25vw,16px)', color: 'var(--color-text-muted)' }}>
+          style={{ fontSize: 'clamp(15px,1.25vw,17px)', color: 'var(--color-text-muted)' }}>
           4+ years building enterprise government platforms at the intersection of GIS, AI, and performance engineering.
           Based in Hyderabad, India. Open and available now.
         </p>
@@ -86,7 +86,7 @@ export default function Contact() {
           {/* Open-to chips */}
           <div className="flex flex-wrap gap-2">
             {OPEN_TO.map(t => (
-              <span key={t} className="rounded-full px-3.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.12em]"
+              <span key={t} className="rounded-full px-3.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.1em]"
                 style={{ background: 'var(--color-bg-raised)', border: '1px solid var(--color-border)', color: 'var(--color-text-dim)' }}>
                 {t}
               </span>
@@ -130,8 +130,8 @@ export default function Contact() {
             <h4 className="footer-label">Education</h4>
             <p className="footer-link" style={{ cursor: 'default' }}>B.Tech Computer Science</p>
             <p className="footer-muted">JNTU Hyderabad, 2022</p>
-            <p className="footer-muted mt-4 text-[11px]">© 2025 Aleti Sai Chandu</p>
-            <p className="footer-muted text-[10px]">Built with React · GSAP · Tailwind</p>
+            <p className="footer-muted mt-4 text-[12px]">© 2025 Aleti Sai Chandu</p>
+            <p className="footer-muted text-[11px]">Built with React · GSAP · Tailwind</p>
           </div>
         </div>
       </div>

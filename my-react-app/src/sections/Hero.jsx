@@ -72,11 +72,11 @@ export default function Hero() {
             }}
           >
             <div className="pointer-events-none absolute inset-x-6 top-5 z-10 flex items-center justify-between">
-              <span className="font-mono text-[8px] uppercase tracking-[0.22em]"
-                style={{ color: 'var(--color-text-ultra)' }}>
+              <span className="font-mono text-[10px] font-medium uppercase tracking-[0.16em]"
+                style={{ color: 'var(--color-text-dim)' }}>
                 Interactive profile
               </span>
-              <span className="flex items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.18em]"
+              <span className="flex items-center gap-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.14em]"
                 style={{ color: 'var(--color-text-dim)' }}>
                 <span className="h-1 w-1 rounded-full animate-pulse" style={{ background: 'var(--color-accent)' }} />
                 Live
@@ -92,7 +92,7 @@ export default function Hero() {
             />
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
               style={{ background: 'linear-gradient(to top, var(--color-bg), transparent)' }} />
-            <span className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[8px] uppercase tracking-[0.2em] opacity-45 transition-opacity duration-300 group-hover:opacity-80"
+            <span className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] font-medium uppercase tracking-[0.16em] opacity-70 transition-opacity duration-300 group-hover:opacity-100"
               style={{ color: 'var(--color-text-muted)' }}>
               Move cursor to interact
             </span>
@@ -100,7 +100,7 @@ export default function Hero() {
           {/* Floating label under figure */}
           <div className="mt-4 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--color-success)' }} />
-            <span className="font-mono text-[9.5px] uppercase tracking-[0.24em]"
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.18em]"
               style={{ color: 'var(--color-text-dim)' }}>
               Available for hire
             </span>
@@ -122,7 +122,7 @@ export default function Hero() {
           {/* Location kicker — desktop */}
           <div data-hero-kicker className="mb-5 hidden lg:flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: 'var(--color-success)' }} />
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em]"
+            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.18em]"
               style={{ color: 'var(--color-text-dim)' }}>
               Hyderabad, India
             </span>
@@ -154,9 +154,9 @@ export default function Hero() {
 
           {/* Taglines */}
           <div className="mt-4" style={{ color: 'var(--color-accent)' }}>
-            <h2 className="font-display uppercase" style={{ fontSize: 'clamp(0.55rem, 1.5vw, 1.1rem)', letterSpacing: '0.12em' }}>
+            <h2 className="font-display uppercase" style={{ fontSize: 'clamp(0.78rem, 1.5vw, 1.1rem)', letterSpacing: '0.1em', lineHeight: 1.55 }}>
               <span data-hero-tagline className="block overflow-hidden">Senior Frontend Engineer · Full Stack Developer</span>
-              <span data-hero-tagline className="block overflow-hidden mt-0.5" style={{ color: 'var(--color-text-dim)', fontSize: '0.85em' }}>
+              <span data-hero-tagline className="block overflow-hidden mt-1" style={{ color: 'var(--color-text-muted)', fontSize: '0.9em' }}>
                 GIS & AI Integration Specialist · Angular · React · TypeScript
               </span>
             </h2>
@@ -164,7 +164,7 @@ export default function Hero() {
 
           {/* Bio */}
           <p data-hero-bio className="mt-6 max-w-[52ch] leading-relaxed"
-            style={{ fontSize: 'clamp(13px, 1.2vw, 15px)', color: 'var(--color-text-muted)' }}>
+            style={{ fontSize: 'clamp(15px, 1.2vw, 16px)', color: 'var(--color-text-muted)' }}>
             4+ years designing, building, and deploying scalable enterprise-grade web applications
             across government, agriculture, and climate-tech domains at Vassar Labs.
           </p>
@@ -193,7 +193,7 @@ export default function Hero() {
             {QUICK_STATS.map(({ n, label }, i) => (
               <div key={i} className="flex flex-col gap-0.5">
                 <span className="font-display leading-none" style={{ fontSize: 'clamp(1.3rem, 2.2vw, 1.85rem)', color: 'var(--color-accent)' }}>{n}</span>
-                <span className="font-mono text-[9px] uppercase tracking-[0.20em]" style={{ color: 'var(--color-text-ultra)' }}>{label}</span>
+                <span className="font-mono text-[10.5px] font-medium uppercase tracking-[0.14em]" style={{ color: 'var(--color-text-dim)' }}>{label}</span>
               </div>
             ))}
           </div>
@@ -202,7 +202,7 @@ export default function Hero() {
 
       {/* Scroll hint */}
       <div data-scroll-hint className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5">
-        <span className="font-mono text-[9px] uppercase tracking-[0.24em]" style={{ color: 'var(--color-text-ultra)' }}>scroll</span>
+        <span className="font-mono text-[10px] font-medium uppercase tracking-[0.18em]" style={{ color: 'var(--color-text-dim)' }}>scroll</span>
         <div className="w-px h-9 overflow-hidden" style={{ background: 'var(--color-border)' }}>
           <div className="w-full h-full animate-slide-down" style={{ background: 'linear-gradient(to bottom, var(--color-accent), transparent)' }} />
         </div>
