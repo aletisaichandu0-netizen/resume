@@ -21,44 +21,44 @@
 
 /* ── Tokens — Dark (default) ────────────────────────────────────── */
 :root {
-  /* backgrounds — mid charcoal */
-  --color-bg:             #1a1a22;
-  --color-bg-raised:      #21212b;
-  --color-bg-elevated:    #282834;
-  --color-surface:        rgba(255,255,255,0.055);
-  --color-surface-2:      rgba(255,255,255,0.035);
-  --color-surface-hover:  rgba(255,255,255,0.09);
-  --color-border:         rgba(255,255,255,0.10);
-  --color-border-strong:  rgba(255,255,255,0.18);
+  /* backgrounds */
+  --color-bg:             #12141a;
+  --color-bg-raised:      #191c24;
+  --color-bg-elevated:    #222631;
+  --color-surface:        rgba(255,255,255,0.065);
+  --color-surface-2:      rgba(255,255,255,0.045);
+  --color-surface-hover:  rgba(255,255,255,0.105);
+  --color-border:         rgba(255,255,255,0.14);
+  --color-border-strong:  rgba(255,255,255,0.24);
 
   /* text */
-  --color-text:           #f0eeeb;
-  --color-text-80:        rgba(240,238,235,0.82);
-  --color-text-muted:     rgba(240,238,235,0.72);
-  --color-text-dim:       rgba(240,238,235,0.56);
-  --color-text-ultra:     rgba(240,238,235,0.40);
+  --color-text:           #f5f7fa;
+  --color-text-80:        rgba(245,247,250,0.88);
+  --color-text-muted:     rgba(245,247,250,0.76);
+  --color-text-dim:       rgba(245,247,250,0.64);
+  --color-text-ultra:     rgba(245,247,250,0.52);
 
   /* brand */
-  --color-accent:         #d4a96c;
-  --color-accent-light:   #e4c08a;
-  --color-yellow:         #f0b54a;
-  --color-accent-dim:     rgba(212,169,108,0.16);
-  --color-accent-glow:    rgba(212,169,108,0.12);
+  --color-accent:         #e0b778;
+  --color-accent-light:   #f0cf9a;
+  --color-yellow:         #f3bd59;
+  --color-accent-dim:     rgba(224,183,120,0.18);
+  --color-accent-glow:    rgba(224,183,120,0.14);
 
   /* states */
   --color-success:        #4ade80;
-  --color-placeholder:    linear-gradient(135deg, #16161b 0%, #1c1c23 60%, #17171e 100%);
+  --color-placeholder:    linear-gradient(135deg, #11131a 0%, #1b1e27 60%, #141720 100%);
 
   /* scrollbar */
-  --color-scroll-track:   #111116;
-  --color-scroll-thumb:   #d4a96c;
+  --color-scroll-track:   #0d0f14;
+  --color-scroll-thumb:   #e0b778;
   --color-selection-bg:   rgba(240,181,74,0.20);
 
   /* glass */
   --color-glass:          rgba(255,255,255,0.07);
   --color-glass-inset:    rgba(255,255,255,0.28);
   --color-glass-inset-2:  rgba(255,255,255,0.05);
-  --color-footer-glass:   rgba(17,17,22,0.92);
+  --color-footer-glass:   rgba(13,15,20,0.94);
   --color-footer-inset:   rgba(255,255,255,0.20);
 
   /* misc */
@@ -67,7 +67,7 @@
   --color-corner:         rgba(255,255,255,0.65);
   --color-pill:           rgba(255,255,255,0.14);
   --color-pill-shadow:    rgba(255,255,255,0.35);
-  --color-stat-border:    rgba(212,169,108,0.22);
+  --color-stat-border:    rgba(224,183,120,0.28);
 
   /* shadows */
   --shadow-card:  0 0 0 1px rgba(255,255,255,0.07), 0 8px 32px rgba(0,0,0,0.45);
@@ -77,40 +77,40 @@
 
 /* ── Tokens — Light ─────────────────────────────────────────────── */
 :root[data-theme="light"] {
-  --color-bg:             #f8f7f4;
+  --color-bg:             #f7f7f5;
   --color-bg-raised:      #ffffff;
-  --color-bg-elevated:    #fdfcf9;
-  --color-surface:        rgba(0,0,0,0.045);
-  --color-surface-2:      rgba(0,0,0,0.025);
-  --color-surface-hover:  rgba(0,0,0,0.07);
-  --color-border:         rgba(0,0,0,0.09);
-  --color-border-strong:  rgba(0,0,0,0.15);
-  --color-text:           #0d0b08;
-  --color-text-80:        rgba(13,11,8,0.82);
-  --color-text-muted:     rgba(13,11,8,0.70);
-  --color-text-dim:       rgba(13,11,8,0.56);
-  --color-text-ultra:     rgba(13,11,8,0.40);
-  --color-accent:         #9a6c32;
-  --color-accent-light:   #b8843e;
-  --color-yellow:         #c47818;
-  --color-accent-dim:     rgba(154,108,50,0.14);
-  --color-accent-glow:    rgba(154,108,50,0.08);
+  --color-bg-elevated:    #f0f1ee;
+  --color-surface:        rgba(17,24,39,0.055);
+  --color-surface-2:      rgba(17,24,39,0.035);
+  --color-surface-hover:  rgba(17,24,39,0.085);
+  --color-border:         rgba(17,24,39,0.14);
+  --color-border-strong:  rgba(17,24,39,0.23);
+  --color-text:           #171a21;
+  --color-text-80:        rgba(23,26,33,0.88);
+  --color-text-muted:     rgba(23,26,33,0.78);
+  --color-text-dim:       rgba(23,26,33,0.68);
+  --color-text-ultra:     rgba(23,26,33,0.62);
+  --color-accent:         #805522;
+  --color-accent-light:   #96662c;
+  --color-yellow:         #a85d00;
+  --color-accent-dim:     rgba(128,85,34,0.15);
+  --color-accent-glow:    rgba(128,85,34,0.10);
   --color-success:        #16a34a;
   --color-placeholder:    linear-gradient(135deg, #ede8e0 0%, #e8e2d8 60%, #ece7df 100%);
-  --color-scroll-track:   #f8f7f4;
-  --color-scroll-thumb:   #9a6c32;
-  --color-selection-bg:   rgba(154,108,50,0.18);
+  --color-scroll-track:   #f7f7f5;
+  --color-scroll-thumb:   #805522;
+  --color-selection-bg:   rgba(128,85,34,0.20);
   --color-glass:          rgba(255,255,255,0.75);
   --color-glass-inset:    rgba(255,255,255,0.90);
   --color-glass-inset-2:  rgba(0,0,0,0.04);
-  --color-footer-glass:   rgba(248,247,244,0.92);
+  --color-footer-glass:   rgba(247,247,245,0.94);
   --color-footer-inset:   rgba(0,0,0,0.06);
   --color-glow-hero:      rgba(154,108,50,0.05);
   --color-grid:           rgba(0,0,0,0.04);
   --color-corner:         rgba(13,11,8,0.40);
   --color-pill:           rgba(0,0,0,0.08);
   --color-pill-shadow:    rgba(0,0,0,0.06);
-  --color-stat-border:    rgba(154,108,50,0.20);
+  --color-stat-border:    rgba(128,85,34,0.25);
   --shadow-card:  0 0 0 1px rgba(0,0,0,0.07), 0 4px 24px rgba(0,0,0,0.08);
   --shadow-card-hover: 0 0 0 1px rgba(0,0,0,0.10), 0 12px 40px rgba(0,0,0,0.14);
   --shadow-glow:  0 0 60px rgba(154,108,50,0.06);
@@ -123,8 +123,8 @@
   body {
     background: var(--color-bg);
     color: var(--color-text);
-    font-family: 'Helvena', system-ui, sans-serif;
-    font-weight: 430;
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 450;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -146,13 +146,17 @@
 /* ── Utilities ─────────────────────────────────────────────────── */
 @layer utilities {
 
-  .font-display { font-family: 'Vanois', Georgia, serif; }
-  .font-sans    { font-family: 'Helvena', system-ui, sans-serif; }
-  .font-mono    { font-family: 'JetBrains Mono', monospace; }
+  .font-display {
+    font-family: 'Helvena', Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 680;
+    font-synthesis: none;
+  }
+  .font-sans    { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .font-mono    { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
   .font-archivo { font-family: 'ArchivoBlack', sans-serif; }
 
   .label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.16em;
@@ -360,7 +364,7 @@
   .tag-pill {
     display: inline-flex; align-items: center;
     padding: 4px 12px; border-radius: 9999px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     font-size: 11px; letter-spacing: 0.04em;
     border: 1px solid var(--color-border);
     color: var(--color-text-muted);
