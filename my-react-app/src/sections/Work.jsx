@@ -13,6 +13,7 @@ const PROJECTS = [
     fullDesc: 'APAIMS 2.0 is the flagship agricultural intelligence platform for Andhra Pradesh government, serving district collectors and agri-department officials. Built with Angular 18 and PrimeNG, it manages 10,000+ farmer records with advanced GIS map layers, ownership analytics, farmer holding category charts, and multi-level export pipelines. Integrated a fully reusable PrimeNG Design System and Node.js middleware for optimised API communication, reducing feature delivery time by 40%.',
     deliverables: ['Angular 18', 'PrimeNG', 'TypeScript', 'Node.js', 'PostgreSQL', 'REST APIs', 'Leaflet', 'Bootstrap'],
     accent: '#F2590D',
+    cover: `${BASE}/projects/covers/apaims-cover.png`,
     images: [
       `${BASE}/projects/apaims.png`,
       `${BASE}/projects/apaims-2.png`,
@@ -28,6 +29,7 @@ const PROJECTS = [
     fullDesc: 'Mahanidan is the Maharashtra State Agriculture Department\'s flagship platform covering crop planning, GIS mapping, scheme management, and farmer advisory. Features include bund boundary management (22K villages published, 49.1% coverage), district-wise village distribution charts, crop health monitoring, pest forewarning layers, weather overlays, and a unified farmer database. Built with Angular 19 and PrimeNG 19, a config-driven Leaflet map engine, SSR, Keycloak RBAC, and full multi-language (i18n) support.',
     deliverables: ['Angular 19', 'PrimeNG 19', 'Leaflet GIS', 'Chart.js', 'ECharts', 'Keycloak', 'ngx-translate', 'SSR'],
     accent: '#A855F7',
+    cover: `${BASE}/projects/covers/mahanidan-cover.png`,
     images: [`${BASE}/projects/mahaagrinex.png`],
   },
   {
@@ -39,6 +41,7 @@ const PROJECTS = [
     fullDesc: 'SLIS-G (Space Based Land Use Intelligence System for Guwahati) is an AI-powered geospatial analytics platform that ingests satellite and drone imagery through ML classification models. Integrated RAG-style retrieval patterns and prompt engineering to automate alert generation from classified land-use changes. Led frontend development for AI/ML-driven alert dashboards, drone imagery visualisation layers, and OpenLayers-based spatial query tools. Applied Responsible AI principles for government compliance.',
     deliverables: ['Angular', 'OpenLayers', 'GeoServer', 'ML / AI', 'RAG Patterns', 'Bootstrap', 'REST APIs', 'WMS'],
     accent: '#F59E0B',
+    cover: `${BASE}/projects/covers/slis-g-cover.png`,
     images: [`${BASE}/projects/slis-g.png`],
   },
   {
@@ -50,6 +53,7 @@ const PROJECTS = [
     fullDesc: 'WB-AMRUT is a GIS-Based Urban Web Governance System for the Department of Urban Development & Municipal Affairs, Govt. of West Bengal. Led a team of 5 engineers to deliver the full Angular UI including interactive draw tools, layer analysis panels, compare/split views for before/after spatial analysis, and Keycloak IAM with RBAC for enterprise-grade user management. Manages water, green-space, and property tax data across West Bengal municipalities.',
     deliverables: ['Angular', 'Leaflet', 'OpenLayers', 'GeoServer', 'Keycloak', 'WMS', 'PostgreSQL', 'Bootstrap'],
     accent: '#22D3EE',
+    cover: `${BASE}/projects/covers/wbamrut-cover.png`,
     images: [`${BASE}/projects/wbamrut.png`],
   },
   {
@@ -61,6 +65,7 @@ const PROJECTS = [
     fullDesc: 'APWRIMS is developed and maintained under the National Hydrology Project for the AP Water Resources Department. The platform monitors 113 reservoirs (444.57 TMC storage), 38,628 minor irrigation tanks (124.47 TMC), soil moisture levels, ground water (624.87 TMC), and 14,03,859 water conservation structures. Features Highcharts-powered analytics, river gauge stations, GIS district layers, and a bulletin report system. Achieved 51 lakh+ visitors.',
     deliverables: ['Angular', 'Bootstrap', 'Highcharts', 'Leaflet', 'REST APIs', 'PostgreSQL', 'Node.js'],
     accent: '#60A5FA',
+    cover: `${BASE}/projects/covers/apwrims-cover.png`,
     images: [`${BASE}/projects/apwrims.png`],
   },
   {
@@ -72,6 +77,7 @@ const PROJECTS = [
     fullDesc: 'FieldWise is a national-scale IoT field intelligence platform built during my internship at Vassar Labs\' IoT Division. Integrated real-time sensor data via RESTful APIs into Angular-based dashboards, built interactive Leaflet and OpenLayers GIS maps with state/district boundary layers across India, developed reactive forms for field data collection, and collaborated on UX improvements with senior engineers.',
     deliverables: ['Angular', 'Leaflet', 'OpenLayers', 'REST APIs', 'TypeScript', 'Reactive Forms', 'Bootstrap'],
     accent: '#4ADE80',
+    cover: `${BASE}/projects/covers/fieldwise-cover.png`,
     images: [`${BASE}/projects/fieldwise.png`],
   },
   {
@@ -83,6 +89,7 @@ const PROJECTS = [
     fullDesc: 'RealPage is a service-based enterprise portfolio and capability showcase platform. Extended the Angular frontend with a Node.js backend serving dynamic project data via REST endpoints backed by PostgreSQL. Ensured WCAG accessibility compliance, cross-browser compatibility, and fully responsive layouts across all device types. Spring Boot was used for select API services, and Bootstrap provided the responsive grid system. Code is kept private due to client confidentiality.',
     deliverables: ['Angular', 'Node.js', 'Spring Boot', 'PostgreSQL', 'Bootstrap', 'REST APIs', 'WCAG'],
     accent: '#EDE4DC',
+    cover: `${BASE}/projects/covers/realpage-cover.png`,
     images: null,
     private: true,
   },
@@ -351,7 +358,7 @@ function ProjectModal({ project, onClose }) {
 
 /* ── Project Card ──────────────────────────────────────────── */
 function ProjectCard({ project, onOpen }) {
-  const thumb    = project.images?.[0]
+  const thumb    = project.cover
   const hasMulti = project.images?.length > 1
 
   return (
